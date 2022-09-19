@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A63A4BB7"
+    tools:context=".activity_registro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvInicioSesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Inicio de Sesión"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutRect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="35dp"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp">
+
+            <TextView
+                android:id="@+id/tvUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Usuario"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/txtUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tvPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Contraseña"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/txtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tvOlvidoContra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Olvidó su contraseña?"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnInicioSesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="35dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Iniciar Sesión"
+                android:backgroundTint="#0B2B52"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnRegresar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:onClick="regresar"
+                android:text="Regresar"
+                android:backgroundTint="#302E33"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
