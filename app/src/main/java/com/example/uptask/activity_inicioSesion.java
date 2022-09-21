@@ -1,9 +1,11 @@
 package com.example.uptask;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,10 +14,14 @@ import android.widget.Toast;
 
 import com.example.uptask.Modelo.Registro;
 import com.example.uptask.Modelo.Usuario;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-import org.w3c.dom.Text;
 
-public class activity_registro extends AppCompatActivity {
+public class activity_inicioSesion extends AppCompatActivity {
     //Variables
     private Button btnInicioSesion;
     private Button btnRegresar;
@@ -28,11 +34,15 @@ public class activity_registro extends AppCompatActivity {
     private Usuario usuario;
     private Registro registro;
 
+    //declaracion de la variable que almacena el usuario  de firebase
+    private FirebaseAuth mAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_inicio_sesion);
 
         btnInicioSesion = (Button) findViewById(R.id.btnInicioSesion);
         btnRegresar = (Button) findViewById(R.id.btnRegresar);
@@ -42,6 +52,10 @@ public class activity_registro extends AppCompatActivity {
         tvPassword = (TextView) findViewById(R.id.tvPassword);
         tvOlvidoContra = (TextView) findViewById(R.id.tvOlvidoContra);
 
+        //toma el usuario que haya logueado, debolviendo null si no hay uno
+        mAuth = FirebaseAuth.getInstance();
+
+
         btnInicioSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,11 +63,26 @@ public class activity_registro extends AppCompatActivity {
                 || txtPassword.getText().toString().isEmpty()){
                     Toast.makeText(getApplicationContext(), "Por favor complete los campos solicitados", Toast.LENGTH_SHORT).show();
                 }else{
-                    if(registro.getUsuario(txtUsuario.getText().toString().trim()) != null){
-                        inicioSesion(view);
-                    }else{
-                        Toast.makeText(getApplicationContext(), "El usuario no existe", Toast.LENGTH_SHORT).show();
-                    }
+                    //Metodo de firebase para relaizar el inicio de sesión.
+                    //Si el servidor detecta que el formato de la contraseña o del
+                    //correo no son los correctos, entonces no va a ejecutar nada
+                    //dentro del metodo y va a devolver un mensaje de consola.
+                    mAuth.signInWithEmailAndPassword(txtUsuario.getText().toString().trim(),
+                                    txtPassword.getText().toString().trim())
+                            .addOnCompleteListener(activity_inicioSesion.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    //el task que entra por parametro funciona como contenedor
+                                    //de la tarea que se está realizando. El metodo *isSucceful*
+                                    //devuelve un booleano cuando la tarea se realiza correctamente
+                                    if (task.isSuccessful()) {
+                                        Log.d("TAG", "Bienvenido");
+                                        inicioSesion(view);
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "Usuario o contraseña invalidos", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                 }
             }
         });

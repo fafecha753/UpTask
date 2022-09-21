@@ -8,9 +8,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
     Button btnRegistrarse;
     Button btnIniciarSesion;
+    //declaracion de la variable que almacena el usuario  de firebase
+    private FirebaseAuth mAuth;
+
+    //cuando se visualiza la pantalla verifica si hay un usuario logueado
+    @Override
+    public void onStart() {
+        super.onStart();
+        //toma el usuario que haya logueado, debolviendo null si no hay uno
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            //si existe un usuario logueado entonces lo redirige a la pantalla home
+            home();
+        }
+    }// fin del onstart
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +37,13 @@ public class MainActivity extends AppCompatActivity {
         btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
         btnIniciarSesion = (Button) findViewById(R.id.btnIniciarSesion);
 
+        //Crea una instancia en la variable *mAuth* de tipo FireBaseAuth
+        mAuth = FirebaseAuth.getInstance();
+
+
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 cambiarIniciarSesion(view);
             }
         });
@@ -33,9 +54,23 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Abrir pagina Registro", Toast.LENGTH_SHORT).show();
             }
         });
-    }
+
+    }//fin del oncreate
+
+
+    //Metodo de llamada a la vista de inicio de sesión
     public void cambiarIniciarSesion(View view){
-        Intent cambiarInicioSesion = new Intent(this, activity_registro.class);
+        Intent cambiarInicioSesion = new Intent(this, activity_inicioSesion.class);
         startActivity(cambiarInicioSesion);
+    }
+    //metodo de llamada a la vista de registro
+    public void cambiarRegistrarse(View view){
+        Intent cambiarRegistro = new Intent(this, activity_inicioSesion.class);
+        startActivity(cambiarRegistro);
+    }
+    //metodo de llamada a la pantalla home
+    public void home(){
+        Intent inicioSesion = new Intent(this, activity_sesionIniciada.class);
+        startActivity(inicioSesion);
     }
 }
