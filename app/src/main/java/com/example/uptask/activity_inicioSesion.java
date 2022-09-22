@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +18,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
 public class activity_inicioSesion extends AppCompatActivity {
@@ -44,7 +43,7 @@ public class activity_inicioSesion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
 
-        btnInicioSesion = (Button) findViewById(R.id.btnInicioSesion);
+        btnInicioSesion = (Button) findViewById(R.id.btnRecuperarContrasena);
         btnRegresar = (Button) findViewById(R.id.btnRegresar);
         txtUsuario = (EditText) findViewById(R.id.txtUsuario);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
@@ -63,26 +62,7 @@ public class activity_inicioSesion extends AppCompatActivity {
                 || txtPassword.getText().toString().isEmpty()){
                     Toast.makeText(getApplicationContext(), "Por favor complete los campos solicitados", Toast.LENGTH_SHORT).show();
                 }else{
-                    //Metodo de firebase para relaizar el inicio de sesión.
-                    //Si el servidor detecta que el formato de la contraseña o del
-                    //correo no son los correctos, entonces no va a ejecutar nada
-                    //dentro del metodo y va a devolver un mensaje de consola.
-                    mAuth.signInWithEmailAndPassword(txtUsuario.getText().toString().trim(),
-                                    txtPassword.getText().toString().trim())
-                            .addOnCompleteListener(activity_inicioSesion.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    //el task que entra por parametro funciona como contenedor
-                                    //de la tarea que se está realizando. El metodo *isSucceful*
-                                    //devuelve un booleano cuando la tarea se realiza correctamente
-                                    if (task.isSuccessful()) {
-                                        Log.d("TAG", "Bienvenido");
-                                        inicioSesion(view);
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "Usuario o contraseña invalidos", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
+                    validarDatos(view);
                 }
             }
         });
@@ -90,20 +70,71 @@ public class activity_inicioSesion extends AppCompatActivity {
         tvOlvidoContra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Pagina de recuperacion de contraseña", Toast.LENGTH_SHORT).show();
+                olvContra(view);
             }
         });
 
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                regresar(view);
+            }
+        });
 
     }
 
+    public void olvContra(View view){
+        Intent olvidoContrasena = new Intent(this, activity_olvidoContrasena.class);
+        startActivity(olvidoContrasena);
+    }
+
     public void regresar(View view){
-        Intent regresar = new Intent(this, MainActivity.class);
-        startActivity(regresar);
+        finish();
     }
 
     public void inicioSesion(View view){
         Intent inicioSesion = new Intent(this, activity_sesionIniciada.class);
         startActivity(inicioSesion);
+        finish();
+    }
+
+    //Metodo que valida el formato de correo
+    public void validarDatos(View view){
+        String correo= txtUsuario.getText().toString().trim();
+        if(!Patterns.EMAIL_ADDRESS.matcher(correo).matches()){
+            Toast.makeText(getApplicationContext(), "Formato de correo invalido", Toast.LENGTH_SHORT).show();
+            txtUsuario.setError("Formato de correo invalido");
+            return;
+        }
+        iniciarSesion(view);
+    }
+
+    public void iniciarSesion(View view){
+        //Metodo de firebase para relaizar el inicio de sesión.
+        //Si el servidor detecta que el formato de la contraseña o del
+        //correo no son los correctos, entonces no va a ejecutar nada
+        //dentro del metodo y va a devolver un mensaje de consola.
+        mAuth.signInWithEmailAndPassword(txtUsuario.getText().toString().trim(),
+                        txtPassword.getText().toString().trim())
+                .addOnCompleteListener(activity_inicioSesion.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        //el task que entra por parametro funciona como contenedor
+                        //de la tarea que se está realizando. El metodo *isSucceful*
+                        //devuelve un booleano cuando la tarea se realiza correctamente
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "¡Bienvenido!", Toast.LENGTH_SHORT).show();
+                            inicioSesion(view);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "¡Usuario o contraseña invalidos!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

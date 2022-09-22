@@ -36,10 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
         btnIniciarSesion = (Button) findViewById(R.id.btnIniciarSesion);
-
-        //Crea una instancia en la variable *mAuth* de tipo FireBaseAuth
-        mAuth = FirebaseAuth.getInstance();
-
+        mAuth= FirebaseAuth.getInstance();
 
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,5 +69,11 @@ public class MainActivity extends AppCompatActivity {
     public void home(){
         Intent inicioSesion = new Intent(this, activity_sesionIniciada.class);
         startActivity(inicioSesion);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
