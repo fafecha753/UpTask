@@ -29,8 +29,14 @@ public class activity_sesionIniciada extends AppCompatActivity {
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
     public void main(){
         Intent main = new Intent(this, MainActivity.class);
         startActivity(main);
+        finish();
     }
 }

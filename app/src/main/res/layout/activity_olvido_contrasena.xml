@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A63A4BB7"
-    tools:context=".activity_inicioSesion">
+    tools:context=".activity_olvidoContrasena">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +24,7 @@
                 android:id="@+id/tvRecuperarContrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Inicio de Sesión"
+                android:text="Recuperar Contraseña"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="34sp" />
@@ -61,33 +62,6 @@
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
-            <TextView
-                android:id="@+id/tvPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:text="Contraseña"
-                android:textAlignment="center"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/txtPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
-                android:layout_marginRight="35dp"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/tvOlvidoContra"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Olvidó su contraseña?"
-                android:textAlignment="center" />
-
             <Button
                 android:id="@+id/btnRecuperarContrasena"
                 android:layout_width="match_parent"
@@ -95,10 +69,18 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="35dp"
+                android:backgroundTint="#0B2B52"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="Iniciar Sesión"
-                android:backgroundTint="#0B2B52"/>
+                android:text="Recuperar Contaseña" />
+
+            <TextView
+                android:id="@+id/tvOlvidoContra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Se enviará un correo electronico de recuperación"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
@@ -118,5 +100,4 @@
                 android:backgroundTint="#302E33"/>
         </LinearLayout>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
