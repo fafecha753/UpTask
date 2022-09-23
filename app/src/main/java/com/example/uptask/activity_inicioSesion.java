@@ -43,7 +43,7 @@ public class activity_inicioSesion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
 
-        btnInicioSesion = (Button) findViewById(R.id.btnRecuperarContrasena);
+        btnInicioSesion = (Button) findViewById(R.id.btnInicioSesion);
         btnRegresar = (Button) findViewById(R.id.btnRegresar);
         txtUsuario = (EditText) findViewById(R.id.txtUsuario);
         txtPassword = (EditText) findViewById(R.id.txtPassword);

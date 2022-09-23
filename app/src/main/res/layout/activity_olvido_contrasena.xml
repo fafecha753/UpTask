@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -21,7 +22,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvRecuperarContrasena"
+                android:id="@+id/tvInicioSesion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Recuperar Contraseña"
@@ -63,7 +64,7 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/btnRecuperarContrasena"
+                android:id="@+id/btnInicioSesion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
@@ -95,9 +96,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
                 android:layout_marginRight="35dp"
+                android:backgroundTint="#302E33"
                 android:onClick="regresar"
-                android:text="Regresar"
-                android:backgroundTint="#302E33"/>
+                android:text="Regresar" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

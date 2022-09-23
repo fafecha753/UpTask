@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A63A4BB7"
+    android:background="@drawable/fondo_degradado"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,6 +59,7 @@
                 android:layout_height="150px"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="#302E33"
+                android:fontFamily="@font/roboto"
                 android:text="Iniciar Sesión" />
 
             <Button
@@ -62,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150px"
                 android:backgroundTint="#302E33"
+                android:fontFamily="@font/roboto"
                 android:text="Registrarse" />
         </LinearLayout>
     </LinearLayout>
