@@ -3,7 +3,6 @@ package com.example.uptask;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -28,7 +26,7 @@ public class activity_olvidoContrasena extends AppCompatActivity {
         setContentView(R.layout.activity_olvido_contrasena);
 
         txtUsuario = (EditText) findViewById(R.id.txtUsuario);
-        btnRecCont = findViewById(R.id.btnRecuperarContrasena);
+        btnRecCont = findViewById(R.id.btnInicioSesion);
 
         btnRecCont.setOnClickListener(new View.OnClickListener() {
             @Override
