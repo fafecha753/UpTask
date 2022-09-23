@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Emily/AndroidStudioProjects/UpTask/app/src/main/res/layout/activity_inicio_sesion.xml" value="0.17088607594936708" />
+        <entry key="..\:/Users/Emily/AndroidStudioProjects/UpTask/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Emily/AndroidStudioProjects/UpTask/app/src/main/res/layout/activity_olvido_contrasena.xml" value="0.2" />
+        <entry key="..\:/Users/Emily/AndroidStudioProjects/UpTask/app/src/main/res/layout/activity_registro.xml" value="0.25" />
+        <entry key="..\:/Users/Emily/AndroidStudioProjects/UpTask/app/src/main/res/layout/activity_sesion_iniciada.xml" value="0.2" />
         <entry key="..\:/Users/XPC/AndroidStudioProjects/UpTask/app/src/main/res/drawable/fondo_degradado.xml" value="0.2985" />
         <entry key="..\:/Users/XPC/AndroidStudioProjects/UpTask/app/src/main/res/layout/activity_inicio_sesion.xml" value="0.33" />
         <entry key="..\:/Users/XPC/AndroidStudioProjects/UpTask/app/src/main/res/layout/activity_main.xml" value="0.2" />
