@@ -110,24 +110,59 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="484dp" />
+        tools:layout_editor_absoluteY="554dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FF0000"
-        android:orientation="vertical"
+        android:background="#1E1E1E"
+        android:orientation="horizontal"
         android:paddingLeft="150px"
         android:paddingTop="100px"
         android:paddingRight="150px"
         android:paddingBottom="100px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.378">
+        app:layout_constraintVertical_bias="0.377">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="124dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+        </LinearLayout>
     </LinearLayout>
 
     <Button
