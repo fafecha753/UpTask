@@ -45,12 +45,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Abrir pagina Registro", Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }//fin del oncreate
 
@@ -62,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //metodo de llamada a la vista de registro
     public void cambiarRegistrarse(View view){
-        Intent cambiarRegistro = new Intent(this, activity_inicioSesion.class);
+        Intent cambiarRegistro = new Intent(this, activity_registro.class);
         startActivity(cambiarRegistro);
     }
     //metodo de llamada a la pantalla home

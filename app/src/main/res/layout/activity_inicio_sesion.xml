@@ -23,21 +23,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        android:background="#FAFAFA"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_rounded"
         android:orientation="vertical"
         android:paddingLeft="120px"
         android:paddingTop="70px"
         android:paddingRight="120px"
         android:paddingBottom="70px"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInicioSesion"
-        app:layout_constraintVertical_bias="0.275">
+        app:layout_constraintTop_toBottomOf="@+id/tvInicioSesion">
 
         <TextView
             android:id="@+id/tvUsuario"
@@ -106,14 +104,14 @@
         android:id="@+id/btnRegresar"
         android:layout_width="180dp"
         android:layout_height="150px"
-        android:layout_marginBottom="144dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="#302E33"
         android:fontFamily="@font/roboto"
         android:onClick="regresar"
         android:text="Regresar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
