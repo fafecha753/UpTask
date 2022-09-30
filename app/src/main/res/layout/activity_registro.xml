@@ -33,9 +33,10 @@
         android:paddingBottom="70px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRegistrarUsuario"
-        app:layout_constraintVertical_bias="0.143">
+        app:layout_constraintVertical_bias="0.062">
 
         <TextView
             android:id="@+id/tvUsuario"
@@ -104,71 +105,78 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/roboto"
         android:text="Elegir Avatar"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="554dp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        tools:layout_editor_absoluteX="0dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#1E1E1E"
-        android:orientation="horizontal"
-        android:paddingLeft="150px"
-        android:paddingTop="100px"
-        android:paddingRight="150px"
-        android:paddingBottom="100px"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:background="#302E33"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="15px"
+        android:paddingTop="15px"
+        android:paddingRight="15px"
+        android:paddingBottom="15px"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.377">
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="124dp"
-            android:layout_marginRight="10dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button11"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
 
-            <Button
-                android:id="@+id/button10"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button13"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/imageButton10"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
 
-            <Button
-                android:id="@+id/button12"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/imageButton11"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
         </LinearLayout>
     </LinearLayout>
 
     <Button
         android:id="@+id/btnRegresarRegistro"
         android:layout_width="180dp"
-        android:layout_height="wrap_content"
+        android:layout_height="150px"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#302E33"
         android:fontFamily="@font/roboto"
@@ -182,7 +190,7 @@
     <Button
         android:id="@+id/btnRegistro"
         android:layout_width="180dp"
-        android:layout_height="wrap_content"
+        android:layout_height="150px"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#0B2B52"
         android:fontFamily="@font/roboto"
