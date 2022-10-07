@@ -7,7 +7,7 @@
                 android:centerColor="@color/colorDos"
                 android:endColor="@color/colorTres"
                 android:type="linear"
-                android:angle="40"
+                android:angle="270"
                />
         </shape>
     </item>
