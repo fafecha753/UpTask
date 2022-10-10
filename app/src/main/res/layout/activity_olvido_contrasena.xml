@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
-                android:text="Usuario"
+                android:text="Correo Electrónico"
                 android:textAlignment="center"
                 android:textColor="#302E33"
                 android:textSize="20sp" />
@@ -74,7 +74,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto"
-                android:text="Se enviará un correo electronico \n de recuperación"
+                android:text="Se enviará un correo electrónico \n de recuperación"
                 android:textAlignment="center" />
 
             <Button
@@ -87,7 +87,7 @@
                 android:fontFamily="@font/roboto"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="Recuperar Contaseña"
+                android:text="Recuperar Contraseña"
                 android:textAllCaps="false" />
 
         </LinearLayout>
