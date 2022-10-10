@@ -176,13 +176,14 @@
         <Button
             android:id="@+id/btnAgregarTarea"
             android:layout_width="180dp"
-            android:layout_height="150px"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:backgroundTint="#0B2B52"
             android:fontFamily="@font/roboto"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Iniciar Sesión" />
+            android:text="Iniciar Sesión"
+            android:textAllCaps="false" />
 
         <Space
             android:layout_width="10sp"
@@ -192,12 +193,13 @@
         <Button
             android:id="@+id/btnCancelarTarea"
             android:layout_width="180dp"
-            android:layout_height="150px"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:backgroundTint="#0B2B52"
             android:fontFamily="@font/roboto"
-            android:text="Cancelar" />
+            android:text="Cancelar"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

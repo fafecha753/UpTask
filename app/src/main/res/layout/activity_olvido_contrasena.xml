@@ -67,18 +67,6 @@
                 android:inputType="textPersonName"
                 android:textAlignment="center" />
 
-            <Button
-                android:id="@+id/btnInicioSesion"
-                android:layout_width="wrap_content"
-                android:layout_height="150px"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#0B2B52"
-                android:fontFamily="@font/roboto"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="Recuperar Contaseña" />
-
             <TextView
                 android:id="@+id/tvOlvidoContra"
                 android:layout_width="wrap_content"
@@ -86,8 +74,21 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto"
-                android:text="Se enviará un correo electronico de recuperación"
+                android:text="Se enviará un correo electronico \n de recuperación"
                 android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnInicioSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#0B2B52"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Recuperar Contaseña"
+                android:textAllCaps="false" />
 
         </LinearLayout>
 
@@ -99,12 +100,13 @@
             <Button
                 android:id="@+id/btnRegresar"
                 android:layout_width="180dp"
-                android:layout_height="150px"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:backgroundTint="#302E33"
                 android:fontFamily="@font/roboto"
                 android:onClick="regresar"
-                android:text="Regresar" />
+                android:text="Regresar"
+                android:textAllCaps="false" />
         </LinearLayout>
     </LinearLayout>
 
