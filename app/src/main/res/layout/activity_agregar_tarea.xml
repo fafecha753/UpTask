@@ -131,36 +131,36 @@
                 android:id="@+id/imageButton4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:background="#00FFFFFF"
-                app:srcCompat="@drawable/image5" />
+                app:srcCompat="@drawable/cat1" />
 
             <ImageButton
                 android:id="@+id/imageButton5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="-15sp"
-                android:layout_weight="1"
+                android:layout_marginStart="-5sp"
+                android:layout_weight="0.7"
                 android:background="#00FFFFFF"
-                app:srcCompat="@drawable/image5" />
+                app:srcCompat="@drawable/cat2" />
 
             <ImageButton
                 android:id="@+id/imageButton6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="-15sp"
-                android:layout_weight="1"
+                android:layout_marginStart="-5sp"
+                android:layout_weight="0.7"
                 android:background="#00FFFFFF"
-                app:srcCompat="@drawable/image5" />
+                app:srcCompat="@drawable/cat3" />
 
             <ImageButton
                 android:id="@+id/imageButton7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="-15sp"
-                android:layout_weight="1"
+                android:layout_marginStart="-5sp"
+                android:layout_weight="0.7"
                 android:background="#00FFFFFF"
-                app:srcCompat="@drawable/image5" />
+                app:srcCompat="@drawable/cat4" />
         </LinearLayout>
     </LinearLayout>
 

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        //toma el usuario que haya logueado, debolviendo null si no hay uno
+        //toma el usuario que haya logueado, devolviendo null si no hay uno
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             //si existe un usuario logueado entonces lo redirige a la pantalla home
@@ -42,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 cambiarIniciarSesion(view);
+            }
+        });
+        btnRegistrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                cambiarRegistrarse(view);
             }
         });
 

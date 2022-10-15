@@ -1,33 +1,39 @@
 package com.example.uptask.Modelo;
 
+
+
 public class Usuario {
-    private int id;
     private String nombreUsuario;
     private String email;
     private String password;
-    private double exp;
+    private String avatar;
+    private int exp;
 
-    public Usuario(int id, String nombreUsuario, String email, String password) {
-        this.id = id;
+    public Usuario(String nombreUsuario, String email, String password, String avatar, int exp) {
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;
-        this.exp = 0.0;
+        this.avatar = avatar;
+        this.exp = exp;
     }
 
-    public int getId() {
-        return id;
+    public Usuario() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+
+    public String getAvatar() {
+        return avatar;
     }
 
-    public double getExp() {
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public int getExp() {
         return exp;
     }
 
-    public void setExp(double exp) {
+    public void setExp(int exp) {
         this.exp = exp;
     }
 

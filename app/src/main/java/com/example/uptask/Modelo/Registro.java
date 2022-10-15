@@ -37,9 +37,9 @@ public class Registro {
     }
 
     //Encontrar Posicion con nombreUsuario
-    public int getPosicion(int id){
+    public int getPosicion(String id){
         for (int i =0; i<listaUsuarios.size();i++){
-            if(listaUsuarios.get(i).getId() == id){
+            if(listaUsuarios.get(i).getEmail() == id){
                 return i;
             }
         }
@@ -67,7 +67,7 @@ public class Registro {
 
     //Modificar Pedido
     public String editarUsuario(Usuario usuario){
-        int indice = getPosicion(usuario.getId());
+        int indice = getPosicion(usuario.getNombreUsuario());
         if(usuario != null && indice != -1){
             listaUsuarios.set(indice, usuario);
             return "Usuario editado con exito";
