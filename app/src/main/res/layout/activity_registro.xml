@@ -6,203 +6,203 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_degradado">
 
-    <TextView
-        android:id="@+id/tvRegistrarUsuario"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Registrar Usuario"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_rounded"
-        android:orientation="vertical"
-        android:paddingLeft="120px"
-        android:paddingTop="70px"
-        android:paddingRight="120px"
-        android:paddingBottom="70px"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRegistrarUsuario"
-        app:layout_constraintVertical_bias="0.062">
-
-        <TextView
-            android:id="@+id/tvUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Usuario"
-            android:textAlignment="center"
-            android:textColor="#302E33"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/txtUsuario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ems="10"
-            android:fontFamily="@font/roboto"
-            android:inputType="textPersonName"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/tvCorreoElectronico"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Correo Electronico"
-            android:textAlignment="center"
-            android:textColor="#302E33"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/txtCorreoElectronico"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ems="10"
-            android:fontFamily="@font/roboto"
-            android:inputType="textPersonName"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/tvPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/roboto"
-            android:text="Contraseña"
-            android:textAlignment="center"
-            android:textColor="#302E33"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/txtPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ems="10"
-            android:fontFamily="@font/roboto"
-            android:inputType="textPassword"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/roboto"
-        android:text="Elegir Avatar"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="#302E33"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="15px"
-        android:paddingTop="15px"
-        android:paddingRight="15px"
-        android:paddingBottom="15px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/imgBA"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                tools:srcCompat="@drawable/axaixaquog" />
+            <TextView
+                android:id="@+id/tvRegistrarUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Registrar Usuario"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp" />
 
-            <ImageButton
-                android:id="@+id/imgBB"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                tools:srcCompat="@drawable/phoshourt" />
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50sp"
+                android:background="@drawable/bg_rounded"
+                android:orientation="vertical"
+                android:paddingLeft="120px"
+                android:paddingTop="70px"
+                android:paddingRight="120px"
+                android:paddingBottom="70px">
+
+                <TextView
+                    android:id="@+id/tvUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Usuario"
+                    android:textAlignment="center"
+                    android:textColor="#302E33"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/tvCorreoElectronico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Correo Electronico"
+                    android:textAlignment="center"
+                    android:textColor="#302E33"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtCorreoElectronico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/tvPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Contraseña"
+                    android:textAlignment="center"
+                    android:textColor="#302E33"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textPassword"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/roboto"
+                android:text="Elegir Avatar"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                tools:textAlignment="center" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="#302E33"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="15px"
+                android:paddingTop="15px"
+                android:paddingRight="15px"
+                android:paddingBottom="15px">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imgBA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#D3C1F0"
+                        app:srcCompat="@drawable/imgba" />
+
+                    <ImageButton
+                        android:id="@+id/imgBB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#D3C1F0"
+                        app:srcCompat="@drawable/imgbb" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imgBC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#D3C1F0"
+                        app:srcCompat="@drawable/imgbc" />
+
+                    <ImageButton
+                        android:id="@+id/imgBD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#D3C1F0"
+                        app:srcCompat="@drawable/imgbd" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnRegistro"
+                android:layout_width="180dp"
+                android:layout_height="150px"
+                android:layout_gravity="center"
+                android:layout_marginTop="30sp"
+                android:backgroundTint="#0B2B52"
+                android:fontFamily="@font/roboto"
+                android:text="Registrarse" />
+
+            <Button
+                android:id="@+id/btnRegresarRegistro"
+                android:layout_width="180dp"
+                android:layout_height="150px"
+                android:layout_gravity="center"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="30sp"
+                android:backgroundTint="#302E33"
+                android:fontFamily="@font/roboto"
+                android:onClick="regresar"
+                android:text="Regresar" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/imgBC"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                tools:srcCompat="@drawable/gougiahmah" />
-
-            <ImageButton
-                android:id="@+id/imgBD"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                tools:srcCompat="@drawable/uwup" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnRegistro"
-        android:layout_width="180dp"
-        android:layout_height="150px"
-        android:layout_gravity="end"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="192dp"
-        android:backgroundTint="#0B2B52"
-        android:fontFamily="@font/roboto"
-        android:text="Registrarse"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
-
-    <Button
-        android:id="@+id/btnRegresarRegistro"
-        android:layout_width="180dp"
-        android:layout_height="150px"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="#302E33"
-        android:fontFamily="@font/roboto"
-        android:onClick="regresar"
-        android:text="Regresar"
-        app:layout_constraintEnd_toStartOf="@+id/btnRegistro"
-        app:layout_constraintHorizontal_bias="0.935"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
