@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     Button btnRegistrarse;
-    Button btnIniciarSesion;
+    Button btnIniciarSesion, btnEditarPerfil;
     //declaracion de la variable que almacena el usuario  de firebase
     private FirebaseAuth mAuth;
 
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
         btnIniciarSesion = (Button) findViewById(R.id.btnIniciarSesion);
+        btnEditarPerfil= findViewById(R.id.btnEditarPerfil);
         mAuth= FirebaseAuth.getInstance();
 
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +51,13 @@ public class MainActivity extends AppCompatActivity {
                 cambiarRegistrarse(view);
             }
         });
-
+        btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent editarPerfil= new Intent(MainActivity.this, activity_editarPerfil.class);
+                startActivity(editarPerfil);
+            }
+        });
 
     }//fin del oncreate
 
