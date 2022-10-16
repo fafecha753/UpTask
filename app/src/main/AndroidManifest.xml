@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activity_editarPerfil"
+            android:exported="false" />
+        <activity
             android:name=".activity_AgregarTarea"
             android:exported="false" />
         <activity
