@@ -99,6 +99,7 @@ public class activity_registro extends AppCompatActivity {
                             txtUsuario.setError("Formato de contraseña invalido");
                             return;
                         }
+
                         agregarUsuario(v);
 
                     }
@@ -212,15 +213,50 @@ public class activity_registro extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         String userui=user.getUid();
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("usuario", txtUsuario.getText().toString());
-        map.put("correo", txtCorreoElectronico.getText().toString());
-        map.put("avatar", avatarSelec);
-        map.put("exp", 0);
+        Map<String, Object> usuario = new HashMap<>();
+        usuario.put("usuario", txtUsuario.getText().toString());
+        usuario.put("correo", txtCorreoElectronico.getText().toString());
+        usuario.put("avatar", avatarSelec);
+        usuario.put("exp", 0);
 
-        DocumentReference documentReference= db.collection("Users")
+        DocumentReference documentReferenceU= db.collection("Users")
                 .document(userui);
-        documentReference.set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+        documentReferenceU.set(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(getApplicationContext(), "Contenido agregado",
+                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        Map<String, Object> logros = new HashMap<>();
+        logros.put("fiestero", false);
+        logros.put("cerebrito", false);
+        logros.put("obrero", false);
+        logros.put("saludable", false);
+
+        DocumentReference documentReferenceCT= db.collection("Contador_tareas")
+                .document(userui);
+        documentReferenceCT.set(logros).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(getApplicationContext(), "Contenido agregado",
+                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        Map<String, Object> contadorTareas = new HashMap<>();
+        contadorTareas.put("academico", 0);
+        contadorTareas.put("laboral", 0);
+        contadorTareas.put("salud", 0);
+        contadorTareas.put("social", 0);
+        contadorTareas.put("total", 0);
+
+        DocumentReference documentReferenceL= db.collection("Logros")
+                .document(userui);
+        documentReferenceL.set(contadorTareas).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(getApplicationContext(), "Contenido agregado",
