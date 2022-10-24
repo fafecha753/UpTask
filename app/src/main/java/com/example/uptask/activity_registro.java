@@ -72,7 +72,6 @@ public class activity_registro extends AppCompatActivity {
 
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
-
             public void onClick(View v) {
                 if(txtUsuario.getText().toString().isEmpty()
                         || txtPassword.getText().toString().isEmpty()
