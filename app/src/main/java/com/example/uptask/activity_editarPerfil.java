@@ -34,7 +34,7 @@ public class activity_editarPerfil extends AppCompatActivity {
         btnCancelar=findViewById(R.id.btnCancelar);
 
         txtEditUsuario=findViewById(R.id.txtEditUsuario);
-        txtEditUsuario.setText("Mela Sopla");
+        txtEditUsuario.setText("Juan Carlos");
 
         txtEditContraseña=findViewById(R.id.txtEditContraseña);
         txtEditContraseña.setText("***");
