@@ -95,8 +95,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:ems="10"
+            android:focusable="false"
             android:fontFamily="@font/roboto"
-            android:inputType="time"
+            android:inputType="date"
             android:textAlignment="center" />
 
     </LinearLayout>
@@ -128,7 +129,7 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/imageButton4"
+                android:id="@+id/btnCatUno"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
@@ -136,7 +137,7 @@
                 app:srcCompat="@drawable/cat1" />
 
             <ImageButton
-                android:id="@+id/imageButton5"
+                android:id="@+id/btnCatDos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="-5sp"
@@ -145,7 +146,7 @@
                 app:srcCompat="@drawable/cat2" />
 
             <ImageButton
-                android:id="@+id/imageButton6"
+                android:id="@+id/btnCatTres"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="-5sp"
@@ -154,7 +155,7 @@
                 app:srcCompat="@drawable/cat3" />
 
             <ImageButton
-                android:id="@+id/imageButton7"
+                android:id="@+id/btnCatCuatro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="-5sp"
@@ -182,7 +183,7 @@
             android:fontFamily="@font/roboto"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Iniciar Sesión"
+            android:text="Agregar Tarea"
             android:textAllCaps="false" />
 
         <Space
