@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.regex.Pattern;
 
@@ -23,27 +27,29 @@ public class activity_editarPerfil extends AppCompatActivity {
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile(PASSWORD_REGEX);
 
-    String avatarSelec= "";
+    String avatarSelec= "", usernameTemp, passwordTemp;
+
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_perfil);
 
+        //Como se llama la tabla?
+        reference = FirebaseDatabase.getInstance().getReference("");
+
         btnGuardar=findViewById(R.id.btnGuardar);
         btnCancelar=findViewById(R.id.btnCancelar);
 
         txtEditUsuario=findViewById(R.id.txtEditUsuario);
-        txtEditUsuario.setText("Juan Carlos");
 
         txtEditContraseña=findViewById(R.id.txtEditContraseña);
-        txtEditContraseña.setText("***");
 
         imgBA=findViewById(R.id.imgBA);
         imgBB=findViewById(R.id.imgBB);
         imgBC=findViewById(R.id.imgBC);
         imgBD=findViewById(R.id.imgBD);
-
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +129,49 @@ public class activity_editarPerfil extends AppCompatActivity {
             }
         });
 
+        mostrarDatos();
+
 
     }//Fin onCreate
+
+
+    //Necesito que el perfil este listo para poder agarrar los datos desde el intent
+    public void mostrarDatos(){
+        Intent intent = getIntent();
+        usernameTemp = intent.getStringExtra("username");
+        passwordTemp = intent.getStringExtra("password");
+
+        txtEditUsuario.setText(usernameTemp);
+        txtEditContraseña.setText(passwordTemp);
+    }
+
+    public void actualizar(View view){
+        if(isNameChanged() || isPasswordChanged()){
+            Toast.makeText(this, "Los datos se han actualizado", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(this, "Los datos son los mismos, no se puede actualizar", Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean isNameChanged() {
+        if(!usernameTemp.equals(txtEditUsuario.getText().toString().trim())){
+            //Ocupo el nombre de la columna del username
+            reference.child(usernameTemp).child("").setValue(txtEditUsuario.getText().toString().trim());
+            usernameTemp = txtEditUsuario.getText().toString().trim();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private boolean isPasswordChanged() {
+        if(!passwordTemp.equals(txtEditContraseña.getText().toString().trim())){
+            //Ocupo el nombre de la columna de la contraseña
+            reference.child(usernameTemp).child("").setValue(txtEditContraseña.getText().toString().trim());
+            passwordTemp = txtEditContraseña.getText().toString().trim();
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
 
 }//Final clase
