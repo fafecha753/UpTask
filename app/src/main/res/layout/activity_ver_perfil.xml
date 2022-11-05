@@ -50,10 +50,10 @@
                     app:srcCompat="@drawable/imgba" />
 
                 <LinearLayout
-                    android:layout_width="242dp"
+                    android:layout_width="215dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="18dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -71,9 +71,10 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:fontFamily="@font/roboto"
-                            android:text="Nombre de Usuario"
+                            android:text="Nombre"
+                            android:textAlignment="center"
                             android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
+                            android:textSize="24sp" />
 
                         <ImageButton
                             android:id="@+id/imgBEditarPerfil"

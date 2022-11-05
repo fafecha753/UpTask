@@ -12,13 +12,15 @@ import com.google.firebase.auth.FirebaseAuth;
 public class activity_sesionIniciada extends AppCompatActivity {
 
     Button btnCerrarSesion, btnAgregarTarea;
+    Button  btnEditarPerfil, btnPerfil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sesion_iniciada);
         btnCerrarSesion= findViewById(R.id.btnCerrarSesion);
         btnAgregarTarea= findViewById(R.id.btnAgTarea);
-
+        btnEditarPerfil= findViewById(R.id.btnEditarPerfil);
+        btnPerfil= findViewById(R.id.btnPerfil);
 
         btnAgregarTarea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +35,20 @@ public class activity_sesionIniciada extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 main();
+            }
+        });
+        btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent editarPerfil= new Intent(activity_sesionIniciada.this, activity_editarPerfil.class);
+                startActivity(editarPerfil);
+            }
+        });
+        btnPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent perfil= new Intent(activity_sesionIniciada.this, activity_perfil.class);
+                startActivity(perfil);
             }
         });
 
