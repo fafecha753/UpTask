@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.uptask">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,12 +15,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UpTask"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activity_editarPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".activity_AgregarTarea"
+            android:exported="false" />
+        <activity
+            android:name=".activity_registro"
+            android:exported="false" />
+        <activity
+            android:name=".activity_olvidoContrasena"
+            android:exported="false" />
         <activity
             android:name=".activity_sesionIniciada"
             android:exported="false" />
         <activity
-            android:name=".activity_registro"
+            android:name=".activity_inicioSesion"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

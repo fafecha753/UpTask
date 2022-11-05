@@ -8,12 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
-<<<<<<< Updated upstream
-    Button btnRegistrarse;
-    Button btnIniciarSesion;
-=======
+
     Button btnRegistrarse, btnPerfil;
+
     Button btnIniciarSesion, btnEditarPerfil;
     //declaracion de la variable que almacena el usuario  de firebase
     private FirebaseAuth mAuth;
@@ -28,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
             //si existe un usuario logueado entonces lo redirige a la pantalla home
             home();
         }
-    }// fin del onstart
->>>>>>> Stashed changes
+    }// fin del on
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,29 +38,35 @@ public class MainActivity extends AppCompatActivity {
 
         btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
         btnIniciarSesion = (Button) findViewById(R.id.btnIniciarSesion);
-<<<<<<< Updated upstream
-=======
+
         btnEditarPerfil= findViewById(R.id.btnEditarPerfil);
         btnPerfil= findViewById(R.id.btnPerfil);
         mAuth= FirebaseAuth.getInstance();
->>>>>>> Stashed changes
+
+        btnEditarPerfil= findViewById(R.id.btnEditarPerfil);
+        mAuth= FirebaseAuth.getInstance();
+
 
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
                 cambiarIniciarSesion(view);
             }
         });
-
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Abrir pagina Registro", Toast.LENGTH_SHORT).show();
+            public void onClick(View view){
+                cambiarRegistrarse(view);
             }
         });
-<<<<<<< Updated upstream
+        btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent editarPerfil= new Intent(MainActivity.this, activity_editarPerfil.class);
+                startActivity(editarPerfil);
+            }
+        });
     }
-=======
 
         btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,9 +80,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Metodo de llamada a la vista de inicio de sesión
->>>>>>> Stashed changes
     public void cambiarIniciarSesion(View view){
-        Intent cambiarInicioSesion = new Intent(this, activity_registro.class);
+        Intent cambiarInicioSesion = new Intent(this, activity_inicioSesion.class);
         startActivity(cambiarInicioSesion);
+    }
+    //metodo de llamada a la vista de registro
+    public void cambiarRegistrarse(View view){
+        Intent cambiarRegistro = new Intent(this, activity_registro.class);
+        startActivity(cambiarRegistro);
+    }
+    //metodo de llamada a la pantalla home
+    public void home(){
+        Intent inicioSesion = new Intent(this, activity_sesionIniciada.class);
+        startActivity(inicioSesion);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

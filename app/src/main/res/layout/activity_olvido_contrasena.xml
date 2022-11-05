@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degradado"
+    tools:context=".activity_olvidoContrasena">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvInicioSesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Recuperar Contraseña"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutRect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="35dp"
+            android:background="@drawable/bg_rounded"
+            android:orientation="vertical"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp">
+
+            <TextView
+                android:id="@+id/tvUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="Correo Electrónico"
+                android:textAlignment="center"
+                android:textColor="#302E33"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/txtUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tvOlvidoContra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto"
+                android:text="Se enviará un correo electrónico \n de recuperación"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnInicioSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#0B2B52"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Recuperar Contraseña"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnRegresar"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#302E33"
+                android:fontFamily="@font/roboto"
+                android:onClick="regresar"
+                android:text="Regresar"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"></LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ellipse" />
+</androidx.constraintlayout.widget.ConstraintLayout>
