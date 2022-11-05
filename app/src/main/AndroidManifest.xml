@@ -21,6 +21,9 @@
             android:name=".activity_editarPerfil"
             android:exported="false" />
         <activity
+            android:name=".activity_perfil"
+            android:exported="false" />
+        <activity
             android:name=".activity_AgregarTarea"
             android:exported="false" />
         <activity
