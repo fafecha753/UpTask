@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public class activity_registro extends AppCompatActivity {
+    // Declaracion de variables
     EditText txtUsuario;
     EditText txtCorreoElectronico;
     EditText txtPassword;
@@ -43,12 +44,14 @@ public class activity_registro extends AppCompatActivity {
     Button btnRegresarRegistro;
     Button btnRegistro;
     private static final String PASSWORD_REGEX =
-            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,16}$";
+            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[?_/\\-!@#$%^&+=])(?=\\S+$).{8,16}$";
 
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile(PASSWORD_REGEX);
 
     String avatarSelec= "";
+
+    //declaracion de la variable que almacena el usuario  de firebase y la base de datos
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
@@ -58,6 +61,7 @@ public class activity_registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        //Referenciar elementos layout
         txtUsuario = (EditText) findViewById(R.id.txtUsuario);
         txtCorreoElectronico = (EditText) findViewById(R.id.txtCorreoElectronico);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
@@ -67,9 +71,12 @@ public class activity_registro extends AppCompatActivity {
         imgBD = (ImageButton) findViewById(R.id.imgBD);
         btnRegresarRegistro = (Button) findViewById(R.id.btnRegresarRegistro);
         btnRegistro = (Button) findViewById(R.id.btnRegistro);
+        //toma el usuario que haya logueado, devolviendo null si no hay uno
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
 
+        //Obtiene los contenidos de los elemenos del layout y verifica que todos se hayan completado
+        //si es así, llama el metodo de registrar
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +102,7 @@ public class activity_registro extends AppCompatActivity {
                         String contrasena = txtPassword.getText().toString().trim();
                         if (!PASSWORD_PATTERN.matcher(contrasena).matches()) {
                             Toast.makeText(getApplicationContext(), "Formato de contraseña invalido", Toast.LENGTH_SHORT).show();
-                            txtUsuario.setError("Formato de contraseña invalido");
+                            txtPassword.setError("Formato de contraseña invalido");
                             return;
                         }
 
@@ -112,6 +119,8 @@ public class activity_registro extends AppCompatActivity {
                 regresar(v);
             }
         });
+
+        //Cambia los atributos de los botones de selección de avatar, según sean presionados
 
         imgBA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,7 +216,8 @@ public class activity_registro extends AppCompatActivity {
             }
         });
     }
-
+    //Cuando se registra un nuevo usuario no solo se crea la autentificación del registro de usuario
+    //sino que se crean colecciones en la base de datos donde se guarden los logros, perfil y tareas del usuario
     public void crearDatosUsuario(){
         FirebaseUser user = mAuth.getCurrentUser();
         String userui=user.getUid();

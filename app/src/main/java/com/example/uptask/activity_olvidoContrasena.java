@@ -54,7 +54,8 @@ public class activity_olvidoContrasena extends AppCompatActivity {
         }
         recuperarContraseña();
     }
-
+    //A traves de los metodos por defecto de firebase utiliza el correo electronico para
+    //generar u correo de rcuperación
     public void recuperarContraseña(){
         FirebaseAuth auth= FirebaseAuth.getInstance();
         auth.sendPasswordResetEmail(txtUsuario.getText().toString().trim())

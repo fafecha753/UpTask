@@ -31,16 +31,17 @@ import java.util.Map;
 
 public class activity_AgregarTarea extends AppCompatActivity {
 
-
+    // Declaracion de variables
     private TextView txtNombreT, txtDescripcionT, txtFechaT;
     private ImageButton   btnCatUno, btnCatDos, btnCatTres, btnCatCuatro;
     private Button btnAgregarTarea, btnCancelar;
 
     String catSelec= "";
+    //declaracion de la variable que almacena el usuario  de firebase y la base de datos
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
-    // Y luego ya podrás obtener la fecha
+
     final Calendar calendario = Calendar.getInstance();
     int anio = calendario.get(Calendar.YEAR);
     int mes = calendario.get(Calendar.MONTH);
@@ -50,6 +51,8 @@ public class activity_AgregarTarea extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_tarea);
+
+        //Referenciar elementos layout
         txtFechaT = findViewById(R.id.txtFecha);
         txtDescripcionT = findViewById(R.id.txtDescripcionTarea);
         txtNombreT = findViewById(R.id.txtNombreTarea);
@@ -64,6 +67,8 @@ public class activity_AgregarTarea extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
 
+
+        //Seleccionar fecha a traves de un date picker
         txtFechaT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +83,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
                 volver();
             }
         });
-
+        //Cambia los atributos de los botones de selección de avatar, según sean presionados
         btnCatUno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +124,8 @@ public class activity_AgregarTarea extends AppCompatActivity {
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
             }
         });
-
+        //Obtiene los contenidos de los elemenos del layout y verifica que todos se hayan completado
+        //si es así, llama el metodo de agregar tarea
         btnAgregarTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +151,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
             }
         });
     }
-
+    //metodo que se encarga de crear el modulo a traes del cual se selecciona la fecha
     private DatePickerDialog.OnDateSetListener listenerDeDatePicker = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int ano, int mess, int dia) {
@@ -155,11 +161,12 @@ public class activity_AgregarTarea extends AppCompatActivity {
             refrescarFechaEnEditText();
         }
     };
+    //cambia el contenido del campo de fecha
     public void refrescarFechaEnEditText() {
         String fecha = String.format(Locale.getDefault(), "%02d-%02d-%02d", anio, mes, diaDelMes);
         txtFechaT.setText(fecha);
     }
-
+    //metodo de retorno a la pantalla anterior
     public void volver(){
         Intent main = new Intent(this, activity_sesionIniciada.class);
         startActivity(main);
@@ -170,7 +177,8 @@ public class activity_AgregarTarea extends AppCompatActivity {
         super.onBackPressed();
         volver();
     }
-
+    //Agrega los datos a los campos correspondientes en la base de datos firestore
+    //
     public void agregarTarea(View view){
         FirebaseUser user = mAuth.getCurrentUser();
         String userui = user.getUid();
