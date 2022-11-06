@@ -10,13 +10,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.uptask.Modelo.Usuario;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.auth.User;
 
 public class activity_perfil extends AppCompatActivity {
     ImageButton imgBEditarPerfil;
@@ -33,8 +31,8 @@ public class activity_perfil extends AppCompatActivity {
         setContentView(R.layout.activity_ver_perfil);
 
         imgBEditarPerfil= (ImageButton) findViewById(R.id.imgBEditarPerfil);
-        btnRegresarHome= (Button) findViewById(R.id.btnRegresar);
-        btnCerrarSes= (Button) findViewById(R.id.btnCerrarSesion);
+        btnRegresarHome= (Button) findViewById(R.id.btnCerrarSesion);
+        btnCerrarSes= (Button) findViewById(R.id.btnRegresar);
         imgPerfil= (ImageView) findViewById(R.id.imgPerfil);
         tvNumNivel = findViewById(R.id.tvNumNivel);
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario);
@@ -72,6 +70,8 @@ public class activity_perfil extends AppCompatActivity {
 
 
     public void regresar(View view){
+        Intent i = new Intent(this, activity_sesionIniciada.class);
+        startActivity(i);
         finish();
     }
 
