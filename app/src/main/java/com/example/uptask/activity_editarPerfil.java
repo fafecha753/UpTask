@@ -241,6 +241,7 @@ public class activity_editarPerfil extends AppCompatActivity {
                 imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+                Toast.makeText(this, "imgBA", Toast.LENGTH_SHORT).show();
                 break;
             case "imgBB":
                 avatarSelec="imgBB";
@@ -253,6 +254,7 @@ public class activity_editarPerfil extends AppCompatActivity {
                 imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
                 imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+                Toast.makeText(this, "imgBB", Toast.LENGTH_SHORT).show();
                 break;
             case "imgC":
                 avatarSelec="imgBC";
@@ -265,6 +267,7 @@ public class activity_editarPerfil extends AppCompatActivity {
                 imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
                 imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+                Toast.makeText(this, "imgBC", Toast.LENGTH_SHORT).show();
                 break;
             case "imgD":
                 avatarSelec="imgBD";
@@ -277,6 +280,7 @@ public class activity_editarPerfil extends AppCompatActivity {
                 imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
+                Toast.makeText(this, "imgBD", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

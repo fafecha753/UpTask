@@ -95,7 +95,7 @@ public class activity_registro extends AppCompatActivity {
                         String correo = txtCorreoElectronico.getText().toString().trim();
                         if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
                             Toast.makeText(getApplicationContext(), "Formato de correo invalido", Toast.LENGTH_SHORT).show();
-                            txtUsuario.setError("Formato de correo invalido");
+                            txtCorreoElectronico.setError("Formato de correo invalido");
                             return;
                         }
 
