@@ -41,6 +41,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent editarPerfil= new Intent(activity_sesionIniciada.this, activity_editarPerfil.class);
+                //editarPerfil.putExtra("username");
                 startActivity(editarPerfil);
             }
         });
