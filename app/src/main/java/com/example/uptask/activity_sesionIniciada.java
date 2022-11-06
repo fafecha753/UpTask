@@ -17,7 +17,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sesion_iniciada);
-        btnCerrarSesion= findViewById(R.id.btnCerrarSesion);
+        btnCerrarSesion= findViewById(R.id.btnRegresar);
         btnAgregarTarea= findViewById(R.id.btnAgTarea);
         btnEditarPerfil= findViewById(R.id.btnEditarPerfil);
         btnPerfil= findViewById(R.id.btnPerfil);

@@ -31,7 +31,7 @@ public class activity_editarPerfil extends AppCompatActivity {
     EditText txtEditUsuario;
     TextView tvContra;
     ImageButton imgBA, imgBB,imgBC,imgBD;
-    String _USERNAME;
+    String _USERNAME, _IMG;
     private FirebaseAuth mAuth;
 
     private static final String PASSWORD_REGEX =
@@ -184,6 +184,7 @@ public class activity_editarPerfil extends AppCompatActivity {
                 String img = documentSnapshot.get("avatar").toString();
                 txtEditUsuario.setText(nombre);
                 _USERNAME = nombre;
+                _IMG = img;
 
                 cambiarImg(img);
             }
@@ -199,10 +200,14 @@ public class activity_editarPerfil extends AppCompatActivity {
 
     private boolean isNameChanged() {
         if(!_USERNAME.equals(txtEditUsuario.getText().toString().trim())){
+            //Actualiza
+            String userui = mAuth.getUid();
+            DocumentReference docRef = reference.collection("Users").document(userui);
 
-            //reference.child(usernameTemp).child("").setValue(txtEditUsuario.getText().toString().trim());
-            //usernameTemp = txtEditUsuario.getText().toString().trim();
-
+            reference.collection("Users").document(userui).update(
+                    "usuario", txtEditUsuario.getText().toString().trim(),
+                    "avatar", _IMG
+            );
             return true;
         }else{
             return false;
@@ -229,59 +234,50 @@ public class activity_editarPerfil extends AppCompatActivity {
     }
 
     public void cambiarImg(String variable){
-        switch (variable){
-            case "imgBA":
-                avatarSelec="imgBA";
-                imgBA.setEnabled(false);
-                imgBB.setEnabled(true);
-                imgBC.setEnabled(true);
-                imgBD.setEnabled(true);
+        if(variable.equals("imgBA")){
+            avatarSelec="imgBA";
+            imgBA.setEnabled(false);
+            imgBB.setEnabled(true);
+            imgBC.setEnabled(true);
+            imgBD.setEnabled(true);
 
-                imgBA.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
-                imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                Toast.makeText(this, "imgBA", Toast.LENGTH_SHORT).show();
-                break;
-            case "imgBB":
-                avatarSelec="imgBB";
-                imgBA.setEnabled(true);
-                imgBB.setEnabled(false);
-                imgBC.setEnabled(true);
-                imgBD.setEnabled(true);
+            imgBA.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
+            imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+        }else if(variable.equals("imgBB")){
+            avatarSelec="imgBB";
+            imgBA.setEnabled(true);
+            imgBB.setEnabled(false);
+            imgBC.setEnabled(true);
+            imgBD.setEnabled(true);
 
-                imgBA.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
-                imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                Toast.makeText(this, "imgBB", Toast.LENGTH_SHORT).show();
-                break;
-            case "imgC":
-                avatarSelec="imgBC";
-                imgBA.setEnabled(true);
-                imgBB.setEnabled(true);
-                imgBC.setEnabled(false);
-                imgBD.setEnabled(true);
+            imgBA.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
+            imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+        }else if(variable.equals("imgBC")) {
+            avatarSelec="imgBC";
+            imgBA.setEnabled(true);
+            imgBB.setEnabled(true);
+            imgBC.setEnabled(false);
+            imgBD.setEnabled(true);
 
-                imgBA.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
-                imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                Toast.makeText(this, "imgBC", Toast.LENGTH_SHORT).show();
-                break;
-            case "imgD":
-                avatarSelec="imgBD";
-                imgBA.setEnabled(true);
-                imgBB.setEnabled(true);
-                imgBC.setEnabled(true);
-                imgBD.setEnabled(false);
+            imgBA.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
+            imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+        }else if(variable.equals("imgBD")) {
+            avatarSelec="imgBD";
+            imgBA.setEnabled(true);
+            imgBB.setEnabled(true);
+            imgBC.setEnabled(true);
+            imgBD.setEnabled(false);
 
-                imgBA.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
-                Toast.makeText(this, "imgBD", Toast.LENGTH_SHORT).show();
-                break;
+            imgBA.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            imgBB.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            imgBC.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            imgBD.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
         }
     }
     

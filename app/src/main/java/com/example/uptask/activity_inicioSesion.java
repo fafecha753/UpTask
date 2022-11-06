@@ -45,7 +45,7 @@ public class activity_inicioSesion extends AppCompatActivity {
 
         //Referenciar elementos layout
         btnInicioSesion = (Button) findViewById(R.id.btnInicioSesion);
-        btnRegresar = (Button) findViewById(R.id.btnRegresar);
+        btnRegresar = (Button) findViewById(R.id.btnCerrarSesion);
         txtUsuario = (EditText) findViewById(R.id.txtUsuario);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
         tvUsuario = (TextView) findViewById(R.id.tvUsuario);
