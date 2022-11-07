@@ -31,7 +31,7 @@ public class activity_editarPerfil extends AppCompatActivity {
     EditText txtEditUsuario;
     TextView tvContra;
     ImageButton imgBA, imgBB,imgBC,imgBD;
-    String _USERNAME, _IMG;
+    String _USERNAME;
     private FirebaseAuth mAuth;
 
     private static final String PASSWORD_REGEX =
@@ -68,7 +68,7 @@ public class activity_editarPerfil extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                actualizar(view);
             }
         });
 
@@ -184,7 +184,6 @@ public class activity_editarPerfil extends AppCompatActivity {
                 String img = documentSnapshot.get("avatar").toString();
                 txtEditUsuario.setText(nombre);
                 _USERNAME = nombre;
-                _IMG = img;
 
                 cambiarImg(img);
             }
@@ -193,11 +192,19 @@ public class activity_editarPerfil extends AppCompatActivity {
     }
 
     public void actualizar(View view){
-        if(isNameChanged() /* || isPasswordChanged() */){
+        /*if(isNameChanged() /* || isPasswordChanged() ){
             Toast.makeText(this, "Los datos se han actualizado", Toast.LENGTH_SHORT).show();
         }else Toast.makeText(this, "Los datos son los mismos, no se puede actualizar", Toast.LENGTH_SHORT).show();
-    }
+        */
+        String userui = mAuth.getUid();
+        DocumentReference docRef = reference.collection("Users").document(userui);
 
+        reference.collection("Users").document(userui).update(
+                "usuario", txtEditUsuario.getText().toString().trim(),
+                "avatar", avatarSelec
+        );
+    }
+/*
     private boolean isNameChanged() {
         if(!_USERNAME.equals(txtEditUsuario.getText().toString().trim())){
             //Actualiza
@@ -206,26 +213,14 @@ public class activity_editarPerfil extends AppCompatActivity {
 
             reference.collection("Users").document(userui).update(
                     "usuario", txtEditUsuario.getText().toString().trim(),
-                    "avatar", _IMG
+                    "avatar", avatarSelec
             );
             return true;
         }else{
             return false;
         }
     }
-
-    /*
-    private boolean isPasswordChanged() {
-        if(!passwordTemp.equals(txtEditContraseña.getText().toString().trim())){
-            //Ocupo el nombre de la columna de la contraseña
-            reference.child(usernameTemp).child("").setValue(txtEditContraseña.getText().toString().trim());
-            passwordTemp = txtEditContraseña.getText().toString().trim();
-            return true;
-        }else{
-            return false;
-        }
-    }
-    */
+ */
 
     public void IntentCambiarContra(View view){
         Intent inicioSesion = new Intent(this, activity_olvidoContrasena.class);
