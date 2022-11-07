@@ -72,7 +72,7 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/roboto"
                             android:text="Nombre"
-                            android:textAlignment="center"
+                            android:textAlignment="textStart"
                             android:textColor="#FFFFFF"
                             android:textSize="24sp" />
 
@@ -122,10 +122,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
-                android:fontFamily="@font/roboto"
+                android:fontFamily="@font/roboto_medium"
                 android:text="Logros"
                 android:textColor="#444443"
-                android:textSize="40sp" />
+                android:textSize="30sp" />
 
             <LinearLayout
                 android:layout_width="317dp"
