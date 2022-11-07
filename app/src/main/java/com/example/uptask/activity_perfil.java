@@ -107,7 +107,7 @@ public class activity_perfil extends AppCompatActivity {
         if(img.equalsIgnoreCase("imgBC")){
             imgPerfil.setImageResource(R.drawable.imgbc);
         }
-        if(img.equalsIgnoreCase("imgD")){
+        if(img.equalsIgnoreCase("imgBD")){
             imgPerfil.setImageResource(R.drawable.imgbd);
         }
     }
