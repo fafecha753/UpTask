@@ -6,51 +6,134 @@
     android:layout_height="match_parent"
     tools:context=".activity_sesionIniciada">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hola" />
 
-    <Button
-        android:id="@+id/btnRegresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cerrar Sesión"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.352" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btnAgTarea"
+        <LinearLayout
+            android:id="@+id/linearLayout8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/g_rounded_two"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgPerfil"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                app:srcCompat="@drawable/imgba" />
+
+            <LinearLayout
+                android:layout_width="220dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvNombreUsuario"
+                        android:layout_width="147dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:text="Nombre"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <ImageButton
+                        android:id="@+id/btnPerfil"
+                        android:layout_width="10dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#006200EE"
+                        app:srcCompat="@drawable/editarperfil" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvNivel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:text="Nivel"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvNumNivel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto"
+                        android:text="1"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbNivel"
+                        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_weight="1"
+                        android:progress="40"
+                        android:progressBackgroundTint="#FAFAFA"
+                        android:progressTint="#D3C1F0" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lsTareas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </ListView>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAgTare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Agregar tarea"
+        android:clickable="true"
+        android:tint="#FFFFFF"
+        app:backgroundTint="#1E47FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegresar"
-        app:layout_constraintVertical_bias="0.278" />
+        app:rippleColor="#00FFFFFF"
+        tools:rippleColor="#FFFFFF"
+        tools:srcCompat="@drawable/plus" />
 
-    <Button
-        android:id="@+id/btnPerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ver perfil"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAgTarea"
-        tools:layout_editor_absoluteX="145dp" />
-
-    <Button
-        android:id="@+id/btnEditarPerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Editar Perfil"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegresar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

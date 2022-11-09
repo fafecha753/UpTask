@@ -50,10 +50,10 @@
                     app:srcCompat="@drawable/imgba" />
 
                 <LinearLayout
-                    android:layout_width="215dp"
+                    android:layout_width="220dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -77,8 +77,8 @@
                             android:textSize="24sp" />
 
                         <ImageButton
-                            android:id="@+id/imgBEditarPerfil"
-                            android:layout_width="36dp"
+                            android:id="@+id/btnPerfil"
+                            android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_weight="1"
                             android:backgroundTint="#006200EE"
@@ -111,6 +111,18 @@
                             android:text="1"
                             android:textColor="#FFFFFF"
                             android:textSize="16sp" />
+
+                        <ProgressBar
+                            android:id="@+id/pbNivel"
+                            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                            android:layout_width="145dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right"
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="1"
+                            android:progress="40"
+                            android:progressBackgroundTint="#FAFAFA"
+                            android:progressTint="#D3C1F0" />
                     </LinearLayout>
                 </LinearLayout>
 
