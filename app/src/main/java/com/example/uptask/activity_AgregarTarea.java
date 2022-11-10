@@ -191,17 +191,13 @@ public class activity_AgregarTarea extends AppCompatActivity {
         tarea.put("categoria", catSelec);
 
         DocumentReference documentReferenceU = db.collection("Tareas")
-                .document(txtDescripcionT.getText().toString());
+                .document();
         documentReferenceU.set(tarea).addOnSuccessListener(new OnSuccessListener<Void>() {
 
             @Override
             public void onSuccess(Void unused) {
-                    }
-
-
-
-
-
+                Toast.makeText(getApplicationContext(), "Tarea agregada", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

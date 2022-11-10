@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class activity_perfil extends AppCompatActivity {
     Button btnRegresarHome, btnCerrarSes;
     ImageView imgPerfil;
     TextView tvNombreUsuario, tvNumNivel;
+    ProgressBar pExp;
     String avatarSelec= "";
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -30,12 +32,13 @@ public class activity_perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_perfil);
 
-        imgBEditarPerfil= (ImageButton) findViewById(R.id.imgBEditarPerfil);
+        imgBEditarPerfil= (ImageButton) findViewById(R.id.btnPerfil);
         btnRegresarHome= (Button) findViewById(R.id.btnCerrarSesion);
         btnCerrarSes= (Button) findViewById(R.id.btnRegresar);
         imgPerfil= (ImageView) findViewById(R.id.imgPerfil);
         tvNumNivel = findViewById(R.id.tvNumNivel);
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario);
+        pExp= findViewById(R.id.pbNivel);
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
 
@@ -92,9 +95,15 @@ public class activity_perfil extends AppCompatActivity {
                 String img = documentSnapshot.get("avatar").toString();
                 tvNombreUsuario.setText(nombre);
                 tvNumNivel.setText(nivel);
+                pExp.setProgress(experiencia(nivel));
                 cambiarAvatar(img);
             }
         });
+    }
+    public int experiencia(String nivel){
+        int i;
+        i=Integer.parseInt(nivel)%10;
+        return i*10;
     }
 
     public void cambiarAvatar(String img){

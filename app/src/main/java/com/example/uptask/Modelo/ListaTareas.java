@@ -10,6 +10,10 @@ public class ListaTareas {
         listaTareas= new ArrayList<Tarea>();
     }
 
+    public void agregar(Tarea t){
+        listaTareas.add(t);
+
+    }
 
     //Devolver Lista
     public ArrayList<Tarea> devolverLista() {
