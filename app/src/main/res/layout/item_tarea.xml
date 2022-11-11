@@ -6,9 +6,11 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayout9"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="#FAFAFA"
         android:backgroundTint="#FAFAFA"
         android:orientation="horizontal"
@@ -17,26 +19,30 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/lnCat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_roundedgrey"
+            android:background="@drawable/cat_1"
             android:orientation="horizontal">
 
             <Space
-                android:layout_width="5dp"
-                android:layout_height="100dp"
+                android:layout_width="7dp"
+                android:layout_height="80dp"
                 android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="301dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
                 android:paddingTop="5sp"
                 android:text="TituloTarea"
                 android:textAlignment="center"
@@ -47,6 +53,9 @@
                 android:id="@+id/txtDT"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
                 android:text="Descripción de la tarea, pues es una descripción y es algo larga"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -54,17 +63,18 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="#384570"
-            android:backgroundTint="#384570"
+            android:layout_weight="3"
+            android:background="@drawable/bg_fecha"
             android:baselineAligned="false"
+            android:gravity="center"
             android:orientation="vertical"
-            android:paddingTop="20dp">
+            android:textAlignment="center">
 
             <TextView
                 android:id="@+id/txtDia"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00"
                 android:textAlignment="center"
@@ -73,7 +83,7 @@
 
             <TextView
                 android:id="@+id/txtMes"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jul"
                 android:textAlignment="center"
@@ -81,4 +91,12 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

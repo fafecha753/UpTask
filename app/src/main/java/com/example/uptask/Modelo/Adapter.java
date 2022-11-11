@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.uptask.R;
@@ -49,11 +50,28 @@ public class Adapter extends BaseAdapter{
         TextView lbdesc = view.findViewById(R.id.txtDT);
         TextView lbDia = view.findViewById(R.id.txtDia);
         TextView lbtMes = view.findViewById(R.id.txtMes);
+        LinearLayout lnCat = view.findViewById(R.id.lnCat);
 
         lbTitulo.setText(lista.get(i).getTitulo());
         lbdesc.setText(lista.get(i).getDescripcion());
         lbDia.setText(lista.get(i).getDia());
         lbtMes.setText(lista.get(i).getMes());
+        cambiarCategoria(lnCat, lista.get(i).getCategoria());
         return view;
+    }
+
+    public void cambiarCategoria(LinearLayout lnCat, String cat){
+        if(cat.equalsIgnoreCase("cat1")){
+            lnCat.setBackgroundResource(R.drawable.cat_1);
+        }
+        if(cat.equalsIgnoreCase("cat2")){
+            lnCat.setBackgroundResource(R.drawable.cat_2);
+        }
+        if(cat.equalsIgnoreCase("cat3")){
+            lnCat.setBackgroundResource(R.drawable.cat_3);
+        }
+        if(cat.equalsIgnoreCase("cat4")){
+            lnCat.setBackgroundResource(R.drawable.cat_4);
+        }
     }
 }

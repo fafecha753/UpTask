@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import android.widget.AdapterView;
@@ -48,6 +49,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
     ImageView imgPerfil;
     TextView tvNombreUsuario, tvNumNivel;
     ProgressBar pExp;
+    LinearLayout llcontenedor;
     String avatarSelec= "";
 
 
@@ -59,9 +61,11 @@ public class activity_sesionIniciada extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
-        cargarTareas();
+
 
         setContentView(R.layout.activity_sesion_iniciada);
         btnAgregarTarea= findViewById(R.id.btnAgTare);
@@ -73,8 +77,11 @@ public class activity_sesionIniciada extends AppCompatActivity {
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario);
         pExp= findViewById(R.id.pbNivel);
 
+        llcontenedor =findViewById(R.id.llContenedor);
+        llcontenedor.setVisibility(View.INVISIBLE);
 
         iniciarInformación();
+        cargarTareas();
 
 
 
@@ -114,15 +121,6 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
     public void cargarTareas(){
 
-
-        Tarea t= new Tarea();
-        t.setId("ahash");
-        t.setUsuario("jjsd");
-        t.setTitulo("ashaskjsa");
-        t.setDescripcion("document.get(descripció n).toString()asnsnss");
-        t.setCategoria("ss");
-        t.setFecha_limite("11-11-11");
-        lista.add(t);
         String userui = mAuth.getUid();
         db.collection("Tareas")
                 .whereEqualTo("usuario", userui)
@@ -131,7 +129,6 @@ public class activity_sesionIniciada extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "CArga datos", Toast.LENGTH_SHORT).show();
 
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Tarea t= new Tarea();
@@ -144,6 +141,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
                                 lista.add(t);
                                 adapterP= new Adapter(getApplicationContext(), lista) {};
                                 lsTareas.setAdapter(adapterP);
+                                llcontenedor.setVisibility(View.VISIBLE);
                             }
 
                         } else {
