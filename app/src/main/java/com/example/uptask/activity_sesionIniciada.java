@@ -72,7 +72,6 @@ public class activity_sesionIniciada extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
 

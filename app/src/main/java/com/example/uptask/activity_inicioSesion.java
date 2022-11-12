@@ -43,6 +43,7 @@ public class activity_inicioSesion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
 
+
         //Referenciar elementos layout
         btnInicioSesion = (Button) findViewById(R.id.btnInicioSesion);
         btnRegresar = (Button) findViewById(R.id.btnCerrarSesion);

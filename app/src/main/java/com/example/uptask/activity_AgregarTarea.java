@@ -52,6 +52,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_tarea);
 
+
         //Referenciar elementos layout
         txtFechaT = findViewById(R.id.txtFecha);
         txtDescripcionT = findViewById(R.id.txtDescripcionTarea);
