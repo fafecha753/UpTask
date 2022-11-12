@@ -53,7 +53,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textColor="#202020" />
 
                 <TextView
                     android:id="@+id/tvContra"
@@ -61,7 +62,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="Cambiar contraseña"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#5C5B5B" />
 
             </LinearLayout>
 
