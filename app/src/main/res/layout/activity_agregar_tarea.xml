@@ -7,204 +7,256 @@
     android:background="@drawable/fondo_degradadoeditarperfil"
     tools:context=".activity_AgregarTarea">
 
-    <TextView
-        android:id="@+id/tvInicioSesion2"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+
+        android:layout_height="match_parent"
+
         android:fontFamily="@font/roboto_medium"
         android:text="Agregar tarea"
         android:textAlignment="center"
         android:textColor="#444343"
         android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40sp"
-        android:background="@drawable/bg_rounded"
-        android:orientation="vertical"
-        android:paddingLeft="120px"
-        android:paddingTop="70px"
-        android:paddingRight="120px"
-        android:paddingBottom="70px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInicioSesion2">
-
-        <TextView
-            android:id="@+id/tvNombreTarea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Nombre de la tarea"
-            android:textAlignment="center"
-            android:textColor="#302E33"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/txtNombreTarea"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ems="10"
-            android:fontFamily="@font/roboto"
-            android:inputType="textPersonName"
-            android:textAlignment="center"
-            android:textColor="#171717" />
-
-        <TextView
-            android:id="@+id/tvDescripcionTarea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/roboto"
-            android:text="Descripción de la tarea"
-            android:textAlignment="center"
-            android:textColor="#302E33"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/txtDescripcionTarea"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:fontFamily="@font/roboto"
-            android:inputType="textLongMessage"
-            android:textAlignment="center"
-            android:textColor="#171717" />
-
-        <TextView
-            android:id="@+id/tvFecha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/roboto"
-            android:text="Fecha limite"
-            android:textAlignment="center"
-            android:textColor="#302E33"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/txtFecha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ems="10"
-            android:focusable="false"
-            android:fontFamily="@font/roboto"
-            android:inputType="date"
-            android:textAlignment="center"
-            android:textColor="#171717" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <TextView
-            android:id="@+id/tvCategoria"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Elegir categoría"
-            android:textAlignment="center"
-            android:textColor="#302E33"
-            android:textSize="24sp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/btnCatUno"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:background="#00FFFFFF"
-                app:srcCompat="@drawable/cat1" />
-
-            <ImageButton
-                android:id="@+id/btnCatDos"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="-5sp"
-                android:layout_weight="0.7"
-                android:background="#00FFFFFF"
-                app:srcCompat="@drawable/cat2" />
-
-            <ImageButton
-                android:id="@+id/btnCatTres"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="-5sp"
-                android:layout_weight="0.7"
-                android:background="#00FFFFFF"
-                app:srcCompat="@drawable/cat3" />
-
-            <ImageButton
-                android:id="@+id/btnCatCuatro"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="-5sp"
-                android:layout_weight="0.7"
-                android:background="#00FFFFFF"
-                app:srcCompat="@drawable/cat4" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btnCancelarTarea"
-            android:layout_width="180dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:backgroundTint="#302E33"
-            android:fontFamily="@font/roboto"
-            android:text="Regresar"
-            android:textAllCaps="false" />
-
-        <Space
-            android:layout_width="10sp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnAgregarTarea"
-            android:layout_width="180dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:backgroundTint="#0B2B52"
-            android:fontFamily="@font/roboto"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="Agregar Tarea"
-            android:textAllCaps="false" />
+            <TextView
+                android:id="@+id/tvInicioSesion2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Agregar tarea"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40sp"
+                android:background="@drawable/bg_rounded"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="120px"
+                android:paddingTop="70px"
+                android:paddingRight="120px"
+                android:paddingBottom="70px">
+
+                <TextView
+                    android:id="@+id/tvNombreTarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Nombre de la tarea"
+                    android:textAlignment="center"
+                    android:textColor="#302E33"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/txtNombreTarea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textColor="#171717" />
+
+                <TextView
+                    android:id="@+id/tvDescripcionTarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Descripción de la tarea"
+                    android:textAlignment="center"
+                    android:textColor="#302E33"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/txtDescripcionTarea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textLongMessage"
+                    android:textAlignment="center"
+                    android:textColor="#171717" />
+
+                <TextView
+                    android:id="@+id/tvFecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Fecha limite"
+                    android:textAlignment="center"
+                    android:textColor="#302E33"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/txtFecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="date"
+                    android:textAlignment="center"
+                    android:textColor="#171717" />
+
+                <TextView
+                    android:id="@+id/tvHora"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Hora Límite"
+                    android:textAlignment="center"
+                    android:textColor="#302E33"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/txtHora"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:inputType="time"
+                    android:textAlignment="center" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4sp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Switch
+                        android:id="@+id/swDiaria"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tarea diaria"
+                        android:thumb="@drawable/common_google_signin_btn_icon_light_normal_background"
+                        android:thumbTint="#384570"
+                        android:track="@drawable/common_google_signin_btn_text_dark_normal_background"
+                        android:trackTint="#D3D3D3 " />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvCategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Elegir categoría"
+                    android:textAlignment="center"
+                    android:textColor="#302E33"
+                    android:textSize="24sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btnCatUno"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:background="#00FFFFFF"
+                        app:srcCompat="@drawable/cat1" />
+
+                    <ImageButton
+                        android:id="@+id/btnCatDos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-5sp"
+                        android:layout_weight="0.7"
+                        android:background="#00FFFFFF"
+                        app:srcCompat="@drawable/cat2" />
+
+                    <ImageButton
+                        android:id="@+id/btnCatTres"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-5sp"
+                        android:layout_weight="0.7"
+                        android:background="#00FFFFFF"
+                        app:srcCompat="@drawable/cat3" />
+
+                    <ImageButton
+                        android:id="@+id/btnCatCuatro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-5sp"
+                        android:layout_weight="0.7"
+                        android:background="#00FFFFFF"
+                        app:srcCompat="@drawable/cat4" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCancelarTarea"
+                    android:layout_width="180dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:backgroundTint="#0B2B52"
+                    android:fontFamily="@font/roboto"
+                    android:text="Cancelar"
+                    android:textAllCaps="false" />
+
+                <Space
+                    android:layout_width="10sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnAgregarTarea"
+                    android:layout_width="180dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#0B2B52"
+                    android:fontFamily="@font/roboto"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Agregar Tarea"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

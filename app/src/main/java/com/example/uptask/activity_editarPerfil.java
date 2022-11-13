@@ -49,6 +49,7 @@ public class activity_editarPerfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_perfil);
 
+
         reference = FirebaseFirestore.getInstance();
 
         mAuth = FirebaseAuth.getInstance();
