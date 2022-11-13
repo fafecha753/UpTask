@@ -4,13 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_degradado"
+    android:background="@drawable/fondo_degradadoeditarperfil"
     tools:context=".activity_AgregarTarea">
 
     <ScrollView
         android:layout_width="match_parent"
+
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Agregar tarea"
+        android:textAlignment="center"
+        android:textColor="#444343"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:background="@drawable/bg_rounded"
+        android:orientation="vertical"
+        android:paddingLeft="120px"
+        android:paddingTop="70px"
+        android:paddingRight="120px"
+        android:paddingBottom="70px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInicioSesion2">
+
+        <TextView
+            android:id="@+id/tvNombreTarea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Nombre de la tarea"
+            android:textAlignment="center"
+            android:textColor="#302E33"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txtNombreTarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="#171717" />
+
+        <TextView
+            android:id="@+id/tvDescripcionTarea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto"
+            android:text="Descripción de la tarea"
+            android:textAlignment="center"
+            android:textColor="#302E33"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txtDescripcionTarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:inputType="textLongMessage"
+            android:textAlignment="center"
+            android:textColor="#171717" />
+
+        <TextView
+            android:id="@+id/tvFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto"
+            android:text="Fecha limite"
+            android:textAlignment="center"
+            android:textColor="#302E33"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txtFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:focusable="false"
+            android:fontFamily="@font/roboto"
+            android:inputType="date"
+            android:textAlignment="center"
+            android:textColor="#171717" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:orientation="vertical"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -247,7 +351,9 @@
 
             </LinearLayout>
 
+
         </LinearLayout>
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
