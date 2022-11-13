@@ -148,6 +148,10 @@ public class activity_sesionIniciada extends AppCompatActivity {
         builder.setPositiveButton("Editar Tarea", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Intent editarTarea = new Intent(activity_sesionIniciada.this, activity_editarTarea.class);
+                //editarTarea.putExtra("id",idTarea);
+                startActivity(editarTarea);
+                finish();
                 //Aquí se llamaria la ventana de editar y se enviaria el id de la tarea desde
                 // el intent
             }
@@ -181,6 +185,10 @@ public class activity_sesionIniciada extends AppCompatActivity {
         builder.setNeutralButton("Editar Tarea", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Intent editarTarea = new Intent(activity_sesionIniciada.this, activity_editarTarea.class);
+                //editarTarea.putExtra("id",idTarea);
+                startActivity(editarTarea);
+                finish();
                 //Aquí se llamaria la ventana de editar y se enviaria el id de la tarea desde
                 // el intent
             }

@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_degradadoeditarperfil"
-    tools:context=".activity_AgregarTarea">
+    tools:context=".activity_editarTarea">
 
     <TextView
-        android:id="@+id/tvInicioSesion2"
+        android:id="@+id/tvInicioSesion3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/roboto_medium"
-        android:text="Agregar tarea"
+        android:text="Editar tarea"
         android:textAlignment="center"
         android:textColor="#444343"
         android:textSize="34sp"
@@ -26,7 +26,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/bg_rounded"
         android:orientation="vertical"
         android:paddingLeft="120px"
@@ -35,7 +35,7 @@
         android:paddingBottom="70px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInicioSesion2">
+        app:layout_constraintTop_toBottomOf="@+id/tvInicioSesion3">
 
         <TextView
             android:id="@+id/tvNombreTarea"
@@ -48,15 +48,13 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/txtNombreTarea"
-            android:layout_width="wrap_content"
+            android:id="@+id/txtEditNombreTarea"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:ems="10"
             android:fontFamily="@font/roboto"
             android:inputType="textPersonName"
-            android:textAlignment="center"
-            android:textColor="#171717" />
+            android:text="Name" />
 
         <TextView
             android:id="@+id/tvDescripcionTarea"
@@ -70,15 +68,13 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/txtDescripcionTarea"
-            android:layout_width="wrap_content"
+            android:id="@+id/txtEditDescrpcionTarea"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:ems="10"
             android:fontFamily="@font/roboto"
             android:inputType="textLongMessage"
-            android:textAlignment="center"
-            android:textColor="#171717" />
+            android:text="Name" />
 
         <TextView
             android:id="@+id/tvFecha"
@@ -92,16 +88,12 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/txtFecha"
+            android:id="@+id/txtEditFecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:ems="10"
-            android:focusable="false"
             android:fontFamily="@font/roboto"
-            android:inputType="date"
-            android:textAlignment="center"
-            android:textColor="#171717" />
+            android:inputType="date" />
 
     </LinearLayout>
 
@@ -178,13 +170,11 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <Button
-            android:id="@+id/btnCancelarTarea"
+            android:id="@+id/btnRegresarPrincipal"
             android:layout_width="180dp"
             android:layout_height="70dp"
-            android:layout_gravity="center"
             android:layout_weight="1"
             android:backgroundTint="#302E33"
-            android:fontFamily="@font/roboto"
             android:text="Regresar"
             android:textAllCaps="false" />
 
@@ -194,17 +184,13 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/btnAgregarTarea"
+            android:id="@+id/btnGuardarTarea"
             android:layout_width="180dp"
             android:layout_height="70dp"
-            android:layout_gravity="center"
+            android:layout_weight="1"
             android:backgroundTint="#0B2B52"
-            android:fontFamily="@font/roboto"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="Agregar Tarea"
+            android:text="Guardar Tarea"
             android:textAllCaps="false" />
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
