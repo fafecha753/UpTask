@@ -199,10 +199,17 @@ public class activity_editarPerfil extends AppCompatActivity {
         String userui = mAuth.getUid();
         DocumentReference docRef = reference.collection("Users").document(userui);
 
-        reference.collection("Users").document(userui).update(
-                "usuario", txtEditUsuario.getText().toString().trim(),
-                "avatar", avatarSelec
-        );
+        if(txtEditUsuario.getText().toString().isEmpty()){
+            Toast.makeText(this, "Debe de ingresar un nombre de usuario", Toast.LENGTH_SHORT).show();
+            txtEditUsuario.setError("Debe de ingresar un nombre de usuario");
+        }else{
+            reference.collection("Users").document(userui).update(
+                    "usuario", txtEditUsuario.getText().toString().trim(),
+                    "avatar", avatarSelec
+            );
+            Toast.makeText(this, "Los datos se han actualizado correctamente", Toast.LENGTH_SHORT).show();
+        }
+
     }
 /*
     private boolean isNameChanged() {
