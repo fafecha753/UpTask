@@ -22,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="28dp"
+                android:fontFamily="@font/roboto_medium"
                 android:text="Editar Perfil"
                 android:textColor="#444343"
                 android:textSize="40sp" />
@@ -156,7 +157,7 @@
                     android:backgroundTint="#302E33"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
-                    android:text="Cancelar"
+                    android:text="Regresar"
                     android:textAllCaps="false"
                     android:textSize="14sp" />
 
