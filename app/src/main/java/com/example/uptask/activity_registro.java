@@ -245,7 +245,7 @@ public class activity_registro extends AppCompatActivity {
         logros.put("obrero", false);
         logros.put("saludable", false);
 
-        DocumentReference documentReferenceCT= db.collection("Contador_tareas")
+        DocumentReference documentReferenceCT= db.collection("Logros")
                 .document(userui);
         documentReferenceCT.set(logros).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -263,7 +263,7 @@ public class activity_registro extends AppCompatActivity {
         contadorTareas.put("social", 0);
         contadorTareas.put("total", 0);
 
-        DocumentReference documentReferenceL= db.collection("Logros")
+        DocumentReference documentReferenceL= db.collection("Contador_tareas")
                 .document(userui);
         documentReferenceL.set(contadorTareas).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

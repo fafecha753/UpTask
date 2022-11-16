@@ -97,7 +97,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
         btnCatDos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                catSelec="cat2";
+                catSelec="cat3";
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
@@ -107,7 +107,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
         btnCatTres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                catSelec="cat3";
+                catSelec="cat2";
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
