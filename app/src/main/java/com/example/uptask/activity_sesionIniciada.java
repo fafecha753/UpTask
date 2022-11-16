@@ -148,7 +148,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent editarTarea = new Intent(activity_sesionIniciada.this, activity_editarTarea.class);
-                //editarTarea.putExtra("id",idTarea);
+                editarTarea.putExtra("id",idTarea);
                 startActivity(editarTarea);
                 finish();
                 //Aquí se llamaria la ventana de editar y se enviaria el id de la tarea desde
@@ -185,7 +185,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent editarTarea = new Intent(activity_sesionIniciada.this, activity_editarTarea.class);
-                //editarTarea.putExtra("id",idTarea);
+                editarTarea.putExtra("id",idTarea);
                 startActivity(editarTarea);
                 finish();
                 //Aquí se llamaria la ventana de editar y se enviaria el id de la tarea desde

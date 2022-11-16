@@ -1,28 +1,27 @@
 package com.example.uptask;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.TimePicker;
 
 import com.example.uptask.Modelo.Tarea;
-import com.example.uptask.Modelo.ListaTareas;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,16 +30,16 @@ import java.util.Locale;
 public class activity_editarTarea extends AppCompatActivity {
 
     Button btnRegresarPrincipal, btnGuardarTarea;
-    EditText txtEditNombreTarea,txtEditDrescipcionTarea,txtEditFecha;
+    EditText txtEditNombreTarea,txtEditDescripcionTarea,txtEditFecha, txtEditHora;
     private ImageButton btnCatUno, btnCatDos, btnCatTres, btnCatCuatro;
+    private Switch swEditDiaria;
+    private boolean diario= false;
 
-    ArrayList<Tarea> lista;
-
+    String idTarea;
     String catSelec= "";
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-
 
     final Calendar calendario = Calendar.getInstance();
     int anio = calendario.get(Calendar.YEAR);
@@ -54,8 +53,14 @@ public class activity_editarTarea extends AppCompatActivity {
 
         //Referencia de elementos Layout
         txtEditNombreTarea=findViewById(R.id.txtEditNombreTarea);
-        txtEditDrescipcionTarea=findViewById(R.id.txtEditDescrpcionTarea);
+        txtEditDescripcionTarea=findViewById(R.id.txtEditDescripcionTarea);
         txtEditFecha=findViewById(R.id.txtEditFecha);
+        txtEditHora=findViewById(R.id.txtEditHora);
+        swEditDiaria=findViewById(R.id.swEditDiaria);
+
+        //Extraiga el id
+        Bundle extras = getIntent().getExtras();
+        idTarea= extras.getString("id");
 
         btnRegresarPrincipal= (Button) findViewById(R.id.btnRegresarPrincipal);
         btnGuardarTarea=(Button) findViewById(R.id.btnGuardarTarea);
@@ -66,6 +71,7 @@ public class activity_editarTarea extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
+        mostrarDatosTarea();
 
         //Seleccionar fecha a traves de un date picker
         txtEditFecha.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +79,37 @@ public class activity_editarTarea extends AppCompatActivity {
             public void onClick(View v) {
                 DatePickerDialog dialogoFecha = new DatePickerDialog(activity_editarTarea.this, listenerDeDatePicker, anio, mes, diaDelMes);
                 dialogoFecha.show();
+            }
+        });
+
+        txtEditHora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get Current Time
+                final Calendar c = Calendar.getInstance();;
+
+                // Launch Time Picker Dialog
+                TimePickerDialog timePickerDialog = new TimePickerDialog(activity_editarTarea.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay,
+                                                  int minute) {
+
+                                txtEditHora.setText(hourOfDay + ":" + minute);
+                            }
+                        }, 12, 00, false);
+                timePickerDialog.show();
+            }
+        });
+
+        swEditDiaria.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    diario=true;
+                }else{
+                    diario=false;
+                }
             }
         });
 
@@ -120,9 +157,8 @@ public class activity_editarTarea extends AppCompatActivity {
         btnGuardarTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
-                * editartarea(v);
-                * */
+                editarTarea(view);
+                volver();
             }
         });
 
@@ -137,9 +173,7 @@ public class activity_editarTarea extends AppCompatActivity {
     }//Fin onCreate
 
     public void mostrarDatosTarea(){
-       /*
-       String userui = mAuth.getUid();
-        DocumentReference documentReference= db.collection("Tareas").whereEqualTo("usuario",userui);
+        DocumentReference documentReference= db.collection("Tareas").document(idTarea);
         documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -147,19 +181,35 @@ public class activity_editarTarea extends AppCompatActivity {
                 String descripcion= documentSnapshot.get("descripción").toString();
                 String fecha=documentSnapshot.get("fecha").toString();
                 String categoria=documentSnapshot.get("categoria").toString();
+                String horaLimite=documentSnapshot.get("hora").toString();
+                diario=documentSnapshot.getBoolean("diaria");
                 txtEditNombreTarea.setText(nombre);
-                txtEditDrescipcionTarea.setText(descripcion);
+                txtEditDescripcionTarea.setText(descripcion);
                 txtEditFecha.setText(fecha);
+                txtEditHora.setText(horaLimite);
+                swEditDiaria.setChecked(diario);
                 cambiarCatego(categoria);
             }
-        });*/
+        });
     }//Fin metodo mostrarDatosTarea
 
-    /*public void editarTarea(View view){
+    public void editarTarea(View view){
+        DocumentReference documentReference= db.collection("Tareas").document(idTarea);
+        db.collection("Tareas").document(idTarea).update(
+                "nombre", txtEditNombreTarea.getText().toString().trim(),
+                "descripción", txtEditDescripcionTarea.getText().toString().trim(),
+                "fecha", txtEditFecha.getText().toString().trim(),
+                "hora", txtEditHora.getText().toString().trim(),
+                "categoria",catSelec,
+                "diaria", diario
+        );
+    }//Fin del metodo
 
-
-
-    }//Fin del metodo*/
+    public void volver(){
+        Intent main = new Intent(this, activity_sesionIniciada.class);
+        startActivity(main);
+        finish();
+    }
 
     //metodo que se encarga de crear el modulo a traes del cual se selecciona la fecha
     private DatePickerDialog.OnDateSetListener listenerDeDatePicker = new DatePickerDialog.OnDateSetListener() {
