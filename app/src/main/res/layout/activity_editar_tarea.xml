@@ -160,7 +160,7 @@
                     android:orientation="horizontal">
 
                     <ImageButton
-                        android:id="@+id/btnCatUno"
+                        android:id="@+id/btnEditCatUno"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.7"
@@ -168,31 +168,29 @@
                         app:srcCompat="@drawable/cat1" />
 
                     <ImageButton
-                        android:id="@+id/btnCatDos"
+                        android:id="@+id/btnEditCatDos"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-5sp"
                         android:layout_weight="0.7"
                         android:background="#00FFFFFF"
                         app:srcCompat="@drawable/cat2" />
 
                     <ImageButton
-                        android:id="@+id/btnCatTres"
+                        android:id="@+id/btnEditCatTres"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-5sp"
                         android:layout_weight="0.7"
                         android:background="#00FFFFFF"
                         app:srcCompat="@drawable/cat3" />
 
                     <ImageButton
-                        android:id="@+id/btnCatCuatro"
+                        android:id="@+id/btnEditCatCuatro"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-5sp"
                         android:layout_weight="0.7"
                         android:background="#00FFFFFF"
                         app:srcCompat="@drawable/cat4" />
+
                 </LinearLayout>
             </LinearLayout>
 
