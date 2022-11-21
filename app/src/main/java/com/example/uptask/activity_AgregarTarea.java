@@ -46,7 +46,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
     private Button btnAgregarTarea, btnCancelar;
     private Switch swDiario;
     private boolean diario= false;
-    private int alarmID;
+    private int alarmID=1;
 
     String catSelec= "";
     //declaracion de la variable que almacena el usuario  de firebase y la base de datos
@@ -58,6 +58,8 @@ public class activity_AgregarTarea extends AppCompatActivity {
     int anio = calendario.get(Calendar.YEAR);
     int mes = calendario.get(Calendar.MONTH);
     int diaDelMes = calendario.get(Calendar.DAY_OF_MONTH);
+    int hora;
+    int minuto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,10 +106,11 @@ public class activity_AgregarTarea extends AppCompatActivity {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay,
                                                   int minute) {
-
+                                hora=hourOfDay;
+                                minuto=minute;
                                 txtHoraT.setText(hourOfDay + ":" + minute);
                             }
-                        }, 12, 00, false);
+                        }, 12, 00, true);
                 timePickerDialog.show();
             }
         });
@@ -186,7 +189,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
                 }else{
                     if(catSelec.isEmpty()) {
                         Toast.makeText(getApplicationContext(),
-                                "Por favor seleccione un avatar",
+                                "Por favor seleccione una categoría",
                                 Toast.LENGTH_SHORT).show();
                     }else {
 
@@ -248,6 +251,17 @@ public class activity_AgregarTarea extends AppCompatActivity {
 
             @Override
             public void onSuccess(Void unused) {
+                String fecha = String.format(Locale.getDefault(), "%02d-%02d-%02d", anio, mes, diaDelMes);
+                String horaT= hora+":"+minuto+":00";
+                Calendar horaFecha = Calendar.getInstance();
+                horaFecha.set(Calendar.YEAR,anio);
+                horaFecha.set(Calendar.MONTH,mes);
+                horaFecha.set(Calendar.DAY_OF_MONTH,diaDelMes);
+                horaFecha.set(Calendar.HOUR_OF_DAY,hora);
+                horaFecha.set(Calendar.MINUTE,minuto);
+                horaFecha.set(Calendar.SECOND,0);
+
+                setAlarm (alarmID, horaFecha.getTimeInMillis(), activity_AgregarTarea.this);
                 Toast.makeText(getApplicationContext(), "Tarea agregada", Toast.LENGTH_SHORT).show();
             }
         });
