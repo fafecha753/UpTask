@@ -25,6 +25,7 @@ public class activity_olvidoContrasena extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_olvido_contrasena);
 
+
         txtUsuario = (EditText) findViewById(R.id.txtUsuario);
         btnRecCont = findViewById(R.id.btnInicioSesion);
 

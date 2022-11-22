@@ -200,7 +200,8 @@
                     android:backgroundTint="#302E33"
                     android:fontFamily="@font/roboto"
                     android:onClick="regresar"
-                    android:text="Regresar" />
+                    android:text="Regresar"
+                    android:textAllCaps="false" />
 
                 <Space
                     android:layout_width="15sp"
@@ -214,7 +215,8 @@
                     android:layout_gravity="center"
                     android:backgroundTint="#0B2B52"
                     android:fontFamily="@font/roboto"
-                    android:text="Registrarse" />
+                    android:text="Registrarse"
+                    android:textAllCaps="false" />
 
             </LinearLayout>
 

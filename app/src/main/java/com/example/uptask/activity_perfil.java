@@ -32,6 +32,7 @@ public class activity_perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_perfil);
 
+
         imgBEditarPerfil= (ImageButton) findViewById(R.id.btnPerfil);
         btnRegresarHome= (Button) findViewById(R.id.btnCerrarSesion);
         btnCerrarSes= (Button) findViewById(R.id.btnRegresar);
