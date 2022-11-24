@@ -43,15 +43,17 @@ public class activity_inicioSesion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
 
+
+        //Referenciar elementos layout
         btnInicioSesion = (Button) findViewById(R.id.btnInicioSesion);
-        btnRegresar = (Button) findViewById(R.id.btnRegresar);
+        btnRegresar = (Button) findViewById(R.id.btnCerrarSesion);
         txtUsuario = (EditText) findViewById(R.id.txtUsuario);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
         tvUsuario = (TextView) findViewById(R.id.tvUsuario);
         tvPassword = (TextView) findViewById(R.id.tvPassword);
         tvOlvidoContra = (TextView) findViewById(R.id.tvOlvidoContra);
 
-        //toma el usuario que haya logueado, debolviendo null si no hay uno
+        //toma el usuario que haya logueado, devolviendo null si no hay uno
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -82,6 +84,7 @@ public class activity_inicioSesion extends AppCompatActivity {
         });
 
     }
+
 
     public void olvContra(View view){
         Intent olvidoContrasena = new Intent(this, activity_olvidoContrasena.class);

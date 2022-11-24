@@ -13,9 +13,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnRegistrarse, btnPerfil;
+    Button btnIniciarSesion,btnRegistrarse;
 
-    Button btnIniciarSesion, btnEditarPerfil;
+
     //declaracion de la variable que almacena el usuario  de firebase
     private FirebaseAuth mAuth;
 
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+
         //toma el usuario que haya logueado, devolviendo null si no hay uno
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
@@ -36,14 +37,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         btnRegistrarse = (Button) findViewById(R.id.btnRegistrarse);
         btnIniciarSesion = (Button) findViewById(R.id.btnIniciarSesion);
 
-        btnEditarPerfil= findViewById(R.id.btnEditarPerfil);
-        btnPerfil= findViewById(R.id.btnPerfil);
-        mAuth= FirebaseAuth.getInstance();
 
-        btnEditarPerfil= findViewById(R.id.btnEditarPerfil);
+
         mAuth= FirebaseAuth.getInstance();
 
 
@@ -59,22 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 cambiarRegistrarse(view);
             }
         });
-        btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent editarPerfil= new Intent(MainActivity.this, activity_editarPerfil.class);
-                startActivity(editarPerfil);
-            }
-        });
-    }
 
-        btnPerfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent perfil= new Intent(MainActivity.this, activity_perfil.class);
-                startActivity(perfil);
-            }
-        });
 
     }//fin del oncreate
 

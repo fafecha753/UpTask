@@ -86,13 +86,11 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:text="¿Olvidó su contraseña?"
-<<<<<<< Updated upstream
-            android:textAlignment="center" />
-=======
+
             android:textAlignment="center"
             android:textColor="#6D6D6D"
             android:textSize="12sp" />
->>>>>>> Stashed changes
+
 
         <Button
             android:id="@+id/btnInicioSesion"
@@ -111,17 +109,10 @@
     </LinearLayout>
 
     <Button
-<<<<<<< Updated upstream
         android:id="@+id/btnRegresar"
         android:layout_width="180dp"
         android:layout_height="70dp"
         android:layout_marginTop="28dp"
-=======
-        android:id="@+id/btnCerrarSesion"
-        android:layout_width="170dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="40dp"
->>>>>>> Stashed changes
         android:backgroundTint="#302E33"
         android:fontFamily="@font/roboto"
         android:onClick="regresar"

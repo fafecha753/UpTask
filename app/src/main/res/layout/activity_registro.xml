@@ -62,7 +62,8 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto"
                     android:inputType="textPersonName"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#272727" />
 
                 <TextView
                     android:id="@+id/tvCorreoElectronico"
@@ -83,7 +84,8 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto"
                     android:inputType="textPersonName"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#272727" />
 
                 <TextView
                     android:id="@+id/tvPassword"
@@ -105,7 +107,8 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto"
                     android:inputType="textPassword"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#272727" />
 
             </LinearLayout>
 
@@ -200,13 +203,9 @@
                     android:backgroundTint="#302E33"
                     android:fontFamily="@font/roboto"
                     android:onClick="regresar"
-<<<<<<< Updated upstream
-                    android:text="Regresar" />
-=======
                     android:text="Regresar"
                     android:textAllCaps="false"
                     android:textSize="16sp" />
->>>>>>> Stashed changes
 
                 <Space
                     android:layout_width="103dp"
@@ -220,13 +219,11 @@
                     android:layout_gravity="center"
                     android:backgroundTint="#0B2B52"
                     android:fontFamily="@font/roboto"
-<<<<<<< Updated upstream
-                    android:text="Registrarse" />
-=======
+
                     android:text="Registrarse"
                     android:textAllCaps="false"
                     android:textSize="16sp" />
->>>>>>> Stashed changes
+
 
             </LinearLayout>
 

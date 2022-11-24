@@ -5,47 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_degradadoeditarperfil"
-    tools:context=".activity_AgregarTarea">
+    tools:context=".activity_editarTarea">
 
     <ScrollView
         android:layout_width="match_parent"
-
-        android:layout_height="match_parent"
-
-        android:fontFamily="@font/roboto_medium"
-        android:text="Agregar tarea"
-        android:textAlignment="center"
-        android:textColor="#444343"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/tvInicioSesion2"
+                android:id="@+id/tvInicioSesion3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Agregar tarea"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Editar tarea"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="#444343"
                 android:textSize="34sp" />
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/bg_rounded"
-                android:gravity="center"
                 android:orientation="vertical"
                 android:paddingLeft="120px"
                 android:paddingTop="70px"
@@ -63,15 +51,12 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/txtNombreTarea"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtEditNombreTarea"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:ems="10"
                     android:fontFamily="@font/roboto"
-                    android:inputType="textPersonName"
-                    android:textAlignment="center"
-                    android:textColor="#171717" />
+                    android:inputType="textPersonName" />
 
                 <TextView
                     android:id="@+id/tvDescripcionTarea"
@@ -85,15 +70,12 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/txtDescripcionTarea"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtEditDescripcionTarea"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:ems="10"
                     android:fontFamily="@font/roboto"
-                    android:inputType="textLongMessage"
-                    android:textAlignment="center"
-                    android:textColor="#171717" />
+                    android:inputType="textLongMessage" />
 
                 <TextView
                     android:id="@+id/tvFecha"
@@ -107,36 +89,30 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/txtFecha"
+                    android:id="@+id/txtEditFecha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:ems="10"
                     android:focusable="false"
                     android:fontFamily="@font/roboto"
-                    android:inputType="date"
-                    android:textAlignment="center"
-                    android:textColor="#171717" />
+                    android:inputType="date" />
 
                 <TextView
-                    android:id="@+id/tvHora"
+                    android:id="@+id/tvEditHoraLimite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="Hora Límite"
+                    android:text="Hora Limite"
                     android:textAlignment="center"
                     android:textColor="#302E33"
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/txtHora"
+                    android:id="@+id/txtEditHora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:focusable="false"
-                    android:inputType="time"
-                    android:textAlignment="center" />
+                    android:inputType="time" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -146,11 +122,11 @@
                     android:orientation="horizontal">
 
                     <Switch
-                        android:id="@+id/swDiaria"
+                        android:id="@+id/swEditDiaria"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tarea diaria"
+                        android:text="Tarea Diaria"
                         android:thumb="@drawable/common_google_signin_btn_icon_light_normal_background"
                         android:thumbTint="#384570"
                         android:track="@drawable/common_google_signin_btn_text_dark_normal_background"
@@ -163,6 +139,7 @@
                 android:id="@+id/linearLayout5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="30sp"
                 android:orientation="vertical">
 
@@ -183,7 +160,7 @@
                     android:orientation="horizontal">
 
                     <ImageButton
-                        android:id="@+id/btnCatUno"
+                        android:id="@+id/btnEditCatUno"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.7"
@@ -191,48 +168,45 @@
                         app:srcCompat="@drawable/cat1" />
 
                     <ImageButton
-                        android:id="@+id/btnCatDos"
+                        android:id="@+id/btnEditCatDos"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-5sp"
                         android:layout_weight="0.7"
                         android:background="#00FFFFFF"
                         app:srcCompat="@drawable/cat2" />
 
                     <ImageButton
-                        android:id="@+id/btnCatTres"
+                        android:id="@+id/btnEditCatTres"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-5sp"
                         android:layout_weight="0.7"
                         android:background="#00FFFFFF"
                         app:srcCompat="@drawable/cat3" />
 
                     <ImageButton
-                        android:id="@+id/btnCatCuatro"
+                        android:id="@+id/btnEditCatCuatro"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-5sp"
                         android:layout_weight="0.7"
                         android:background="#00FFFFFF"
                         app:srcCompat="@drawable/cat4" />
+
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnCancelarTarea"
+                    android:id="@+id/btnRegresarPrincipal"
                     android:layout_width="180dp"
                     android:layout_height="70dp"
-                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:backgroundTint="#0B2B52"
-                    android:fontFamily="@font/roboto"
-                    android:text="Cancelar"
+                    android:backgroundTint="#302E33"
+                    android:text="Regresar"
                     android:textAllCaps="false" />
 
                 <Space
@@ -241,22 +215,31 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/btnAgregarTarea"
+                    android:id="@+id/btnGuardarTarea"
                     android:layout_width="180dp"
                     android:layout_height="70dp"
-                    android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:backgroundTint="#0B2B52"
-                    android:fontFamily="@font/roboto"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:text="Agregar Tarea"
+                    android:text="Guardar Tarea"
                     android:textAllCaps="false" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="fitEnd"
+                    app:srcCompat="@drawable/ellipse_gris" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

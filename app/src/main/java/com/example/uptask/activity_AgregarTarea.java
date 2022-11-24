@@ -3,17 +3,26 @@ package com.example.uptask;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,28 +40,39 @@ import java.util.Map;
 
 public class activity_AgregarTarea extends AppCompatActivity {
 
-
-    private TextView txtNombreT, txtDescripcionT, txtFechaT;
+    // Declaracion de variables
+    private TextView txtNombreT, txtDescripcionT, txtFechaT, txtHoraT;
     private ImageButton   btnCatUno, btnCatDos, btnCatTres, btnCatCuatro;
     private Button btnAgregarTarea, btnCancelar;
+    private Switch swDiario;
+    private boolean diario= false;
+    private int alarmID=1;
 
     String catSelec= "";
+    //declaracion de la variable que almacena el usuario  de firebase y la base de datos
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
-    // Y luego ya podrás obtener la fecha
+
     final Calendar calendario = Calendar.getInstance();
     int anio = calendario.get(Calendar.YEAR);
     int mes = calendario.get(Calendar.MONTH);
     int diaDelMes = calendario.get(Calendar.DAY_OF_MONTH);
+    int hora;
+    int minuto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_tarea);
+
+
+        //Referenciar elementos layout
         txtFechaT = findViewById(R.id.txtFecha);
+        txtHoraT = findViewById(R.id.txtHora);
         txtDescripcionT = findViewById(R.id.txtDescripcionTarea);
         txtNombreT = findViewById(R.id.txtNombreTarea);
+        swDiario = findViewById(R.id.swDiaria);
 
         btnAgregarTarea= findViewById(R.id.btnAgregarTarea);
         btnCancelar= findViewById(R.id.btnCancelarTarea);
@@ -64,11 +84,45 @@ public class activity_AgregarTarea extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
 
+
+        //Seleccionar fecha a traves de un date picker
         txtFechaT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog dialogoFecha = new DatePickerDialog(activity_AgregarTarea.this, listenerDeDatePicker, anio, mes, diaDelMes);
                 dialogoFecha.show();
+            }
+        });
+
+        txtHoraT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get Current Time
+                final Calendar c = Calendar.getInstance();;
+
+                // Launch Time Picker Dialog
+                TimePickerDialog timePickerDialog = new TimePickerDialog(activity_AgregarTarea.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay,
+                                                  int minute) {
+                                hora=hourOfDay;
+                                minuto=minute;
+                                txtHoraT.setText(hourOfDay + ":" + minute);
+                            }
+                        }, 12, 00, true);
+                timePickerDialog.show();
+            }
+        });
+
+        swDiario.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    diario=true;
+                }else{
+                    diario=false;
+                }
             }
         });
 
@@ -79,6 +133,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
             }
         });
 
+        //Cambia los atributos de los botones de selección de avatar, según sean presionados
         btnCatUno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +147,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
         btnCatDos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                catSelec="cat2";
+                catSelec="cat3";
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
@@ -102,7 +157,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
         btnCatTres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                catSelec="cat3";
+                catSelec="cat2";
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
@@ -120,6 +175,8 @@ public class activity_AgregarTarea extends AppCompatActivity {
             }
         });
 
+        //Obtiene los contenidos de los elemenos del layout y verifica que todos se hayan completado
+        //si es así, llama el metodo de agregar tarea
         btnAgregarTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,7 +189,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
                 }else{
                     if(catSelec.isEmpty()) {
                         Toast.makeText(getApplicationContext(),
-                                "Por favor seleccione un avatar",
+                                "Por favor seleccione una categoría",
                                 Toast.LENGTH_SHORT).show();
                     }else {
 
@@ -144,8 +201,10 @@ public class activity_AgregarTarea extends AppCompatActivity {
                 }
             }
         });
-    }
+    }//fin on create
 
+
+    //metodo que se encarga de crear el modulo a traes del cual se selecciona la fecha
     private DatePickerDialog.OnDateSetListener listenerDeDatePicker = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int ano, int mess, int dia) {
@@ -155,11 +214,12 @@ public class activity_AgregarTarea extends AppCompatActivity {
             refrescarFechaEnEditText();
         }
     };
+    //cambia el contenido del campo de fecha
     public void refrescarFechaEnEditText() {
         String fecha = String.format(Locale.getDefault(), "%02d-%02d-%02d", anio, mes, diaDelMes);
         txtFechaT.setText(fecha);
     }
-
+    //metodo de retorno a la pantalla anterior
     public void volver(){
         Intent main = new Intent(this, activity_sesionIniciada.class);
         startActivity(main);
@@ -170,7 +230,8 @@ public class activity_AgregarTarea extends AppCompatActivity {
         super.onBackPressed();
         volver();
     }
-
+    //Agrega los datos a los campos correspondientes en la base de datos firestore
+    //
     public void agregarTarea(View view){
         FirebaseUser user = mAuth.getCurrentUser();
         String userui = user.getUid();
@@ -180,21 +241,47 @@ public class activity_AgregarTarea extends AppCompatActivity {
         tarea.put("nombre", txtNombreT.getText().toString());
         tarea.put("descripción", txtDescripcionT.getText().toString());
         tarea.put("fecha", txtFechaT.getText().toString());
+        tarea.put("hora", txtHoraT.getText().toString());
+        tarea.put("diaria", diario);
         tarea.put("categoria", catSelec);
 
         DocumentReference documentReferenceU = db.collection("Tareas")
-                .document(txtDescripcionT.getText().toString());
+                .document();
         documentReferenceU.set(tarea).addOnSuccessListener(new OnSuccessListener<Void>() {
 
             @Override
             public void onSuccess(Void unused) {
-                    }
+                String fecha = String.format(Locale.getDefault(), "%02d-%02d-%02d", anio, mes, diaDelMes);
+                String horaT= hora+":"+minuto+":00";
+                Calendar horaFecha = Calendar.getInstance();
+                horaFecha.set(Calendar.YEAR,anio);
+                horaFecha.set(Calendar.MONTH,mes);
+                horaFecha.set(Calendar.DAY_OF_MONTH,diaDelMes);
+                horaFecha.set(Calendar.HOUR_OF_DAY,hora);
+                horaFecha.set(Calendar.MINUTE,minuto);
+                horaFecha.set(Calendar.SECOND,0);
 
-
-
-
-
+                setAlarm (alarmID, horaFecha.getTimeInMillis(), activity_AgregarTarea.this);
+                Toast.makeText(getApplicationContext(), "Tarea agregada", Toast.LENGTH_SHORT).show();
+            }
         });
     }
+    public static void setAlarm ( int i, Long timestamp, Context ctx){
+
+        AlarmManager alarmManager = (AlarmManager) ctx.getSystemService(ALARM_SERVICE);
+        Intent alarmIntent= new Intent(ctx, AlarmReceiver.class);
+        PendingIntent pendingIntent;
+        pendingIntent= PendingIntent.getBroadcast(ctx, i, alarmIntent, PendingIntent.FLAG_ONE_SHOT);
+        alarmIntent.setData((Uri.parse("custom//"+System.currentTimeMillis())));
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
+    }
+
+
+
+
+
+
+
+
 
 }
