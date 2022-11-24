@@ -11,16 +11,18 @@
         android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="250dp"
-            android:layout_marginTop="4dp"
+            android:layout_width="375dp"
+            android:layout_height="267dp"
             app:srcCompat="@drawable/logo" />
     </LinearLayout>
 
@@ -33,39 +35,44 @@
         android:text="¡Descubre cómo ordenarte!"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="45px"
+        android:textSize="52px"
         app:layout_constraintBottom_toTopOf="@+id/btnIniciarSesion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnIniciarSesion"
-        android:layout_width="180dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#302E33"
         android:fontFamily="@font/roboto"
         android:text="Iniciar Sesión"
         android:textAllCaps="false"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <Button
         android:id="@+id/btnRegistrarse"
-        android:layout_width="180dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="172dp"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="188dp"
         android:backgroundTint="#302E33"
         android:fontFamily="@font/roboto"
         android:onClick="cambiarRegistrarse"
         android:text="Registrarse"
         android:textAllCaps="false"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
 
