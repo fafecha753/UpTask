@@ -28,7 +28,7 @@
                 android:id="@+id/tvInicioSesion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
+                android:fontFamily="@font/roboto"
                 android:text="Recuperar Contraseña"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="35dp"
             android:layout_marginBottom="35dp"
             android:background="@drawable/bg_rounded"
@@ -60,7 +60,7 @@
 
             <EditText
                 android:id="@+id/txtUsuario"
-                android:layout_width="wrap_content"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:ems="10"
@@ -72,17 +72,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/roboto"
-                android:text="Se enviará un correo electrónico \n de recuperación"
-                android:textAlignment="center" />
+                android:text="Se enviará un correo \nde recuperación"
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btnInicioSesion"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:backgroundTint="#0B2B52"
                 android:fontFamily="@font/roboto"
                 android:paddingTop="10dp"
@@ -98,15 +99,23 @@
             android:orientation="vertical">
 
             <Button
+<<<<<<< Updated upstream
                 android:id="@+id/btnRegresar"
                 android:layout_width="180dp"
                 android:layout_height="70dp"
+=======
+                android:id="@+id/btnCerrarSesion"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+>>>>>>> Stashed changes
                 android:layout_gravity="center"
+                android:layout_marginTop="60dp"
                 android:backgroundTint="#302E33"
                 android:fontFamily="@font/roboto"
                 android:onClick="regresar"
                 android:text="Regresar"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 
