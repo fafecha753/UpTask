@@ -11,12 +11,12 @@
         android:id="@+id/tvInicioSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/roboto_bold"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/roboto"
         android:text="Inicio de sesión"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/bg_rounded"
         android:orientation="vertical"
         android:paddingLeft="120px"
@@ -41,11 +41,12 @@
             android:id="@+id/tvUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/roboto"
             android:text="Correo Electrónico"
             android:textAlignment="center"
             android:textColor="#302E33"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/txtUsuario"
@@ -62,12 +63,12 @@
             android:id="@+id/tvPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto"
             android:text="Contraseña"
             android:textAlignment="center"
             android:textColor="#302E33"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/txtPassword"
@@ -83,28 +84,32 @@
             android:id="@+id/tvOlvidoContra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:fontFamily="@font/roboto"
             android:text="¿Olvidó su contraseña?"
+
             android:textAlignment="center"
-            android:textColor="#272626" />
+            android:textColor="#6D6D6D"
+            android:textSize="12sp" />
+
 
         <Button
             android:id="@+id/btnInicioSesion"
-            android:layout_width="180dp"
-            android:layout_height="70dp"
+            android:layout_width="170dp"
+            android:layout_height="55dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="#0B2B52"
             android:fontFamily="@font/roboto"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Iniciar Sesión"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnCerrarSesion"
+        android:id="@+id/btnRegresar"
         android:layout_width="180dp"
         android:layout_height="70dp"
         android:layout_marginTop="28dp"
@@ -113,6 +118,7 @@
         android:onClick="regresar"
         android:text="Regresar"
         android:textAllCaps="false"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

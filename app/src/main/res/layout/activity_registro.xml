@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
-                android:fontFamily="@font/roboto_bold"
+                android:fontFamily="@font/roboto"
                 android:text="Registrar Usuario"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -47,6 +47,7 @@
                     android:id="@+id/tvUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto"
                     android:text="Usuario"
                     android:textAlignment="center"
@@ -68,6 +69,7 @@
                     android:id="@+id/tvCorreoElectronico"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/roboto"
                     android:text="Correo Electronico"
                     android:textAlignment="center"
@@ -89,7 +91,7 @@
                     android:id="@+id/tvPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/roboto"
                     android:text="Contraseña"
                     android:textAlignment="center"
@@ -101,6 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+                    android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/roboto"
                     android:inputType="textPassword"
@@ -185,38 +188,42 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="312dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:orientation="horizontal"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp">
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnRegresarRegistro"
-                    android:layout_width="180dp"
-                    android:layout_height="70dp"
+                    android:layout_width="153dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:backgroundTint="#302E33"
                     android:fontFamily="@font/roboto"
                     android:onClick="regresar"
                     android:text="Regresar"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:textSize="16sp" />
 
                 <Space
-                    android:layout_width="15sp"
-                    android:layout_height="18dp"
+                    android:layout_width="103dp"
+                    android:layout_height="38dp"
                     android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/btnRegistro"
-                    android:layout_width="180dp"
-                    android:layout_height="70dp"
+                    android:layout_width="153dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:backgroundTint="#0B2B52"
                     android:fontFamily="@font/roboto"
+
                     android:text="Registrarse"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:textSize="16sp" />
+
 
             </LinearLayout>
 
