@@ -4,13 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_agregar_tarea.xml" value="0.38697916666666665" />
-        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_editar_perfil.xml" value="0.38697916666666665" />
-        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_inicio_sesion.xml" value="0.38697916666666665" />
-        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_main.xml" value="0.38697916666666665" />
+        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_editar_perfil.xml" value="0.33" />
+        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_editar_tarea.xml" value="0.18819655521783182" />
+        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_inicio_sesion.xml" value="0.33" />
+        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_olvido_contrasena.xml" value="0.38697916666666665" />
         <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_registro.xml" value="0.38697916666666665" />
-        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_sesion_iniciada.xml" value="0.38697916666666665" />
-        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_ver_perfil.xml" value="0.18819655521783182" />
+        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_sesion_iniciada.xml" value="0.33" />
+        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_splash_screen.xml" value="0.18768996960486323" />
+        <entry key="..\:/Android/UpTask/app/src/main/res/layout/activity_ver_perfil.xml" value="0.33" />
         <entry key="..\:/Users/Emily/AndroidStudioProjects/UpTask/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.169" />
         <entry key="..\:/Users/Emily/AndroidStudioProjects/UpTask/app/src/main/res/drawable/fondo_degradado.xml" value="0.169" />
         <entry key="..\:/Users/Emily/AndroidStudioProjects/UpTask/app/src/main/res/drawable/fondo_degradadoeditarperfil.xml" value="0.169" />

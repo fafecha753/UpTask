@@ -57,6 +57,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
     ImageButton btnPerfil;
     Adapter adapterP;
     ListView lsTareas;
+    ProgressBar Cargando;
     ListaTareas lT= new ListaTareas();
     ArrayList<Tarea> lista;
 
@@ -92,6 +93,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
         llcontenedor =findViewById(R.id.llContenedor);
         llcontenedor.setVisibility(View.INVISIBLE);
+        Cargando = findViewById(R.id.Cargando);
 
         iniciarInformación();
         cargarTareas();
@@ -311,6 +313,8 @@ public class activity_sesionIniciada extends AppCompatActivity {
                 tvNumNivel.setText(nivel);
                 pExp.setProgress(experiencia(documentSnapshot.get("exp").toString()));
                 cambiarAvatar(img);
+
+                Cargando.setVisibility(View.GONE);
             }
         });
     }

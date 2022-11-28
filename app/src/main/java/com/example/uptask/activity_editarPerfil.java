@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class activity_editarPerfil extends AppCompatActivity {
     EditText txtEditUsuario;
     TextView tvContra;
     ImageButton imgBA, imgBB,imgBC,imgBD;
+    ProgressBar Cargando;
     String _USERNAME;
     private FirebaseAuth mAuth;
 
@@ -65,6 +67,8 @@ public class activity_editarPerfil extends AppCompatActivity {
         imgBB=findViewById(R.id.imgBB);
         imgBC=findViewById(R.id.imgBC);
         imgBD=findViewById(R.id.imgBD);
+
+        Cargando = findViewById(R.id.Cargando);
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,6 +191,8 @@ public class activity_editarPerfil extends AppCompatActivity {
                 _USERNAME = nombre;
 
                 cambiarImg(img);
+
+                Cargando.setVisibility(View.GONE);
             }
         });
 
