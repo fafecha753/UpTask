@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class activity_editarPerfil extends AppCompatActivity {
     EditText txtEditUsuario;
     TextView tvContra;
     ImageButton imgBA, imgBB,imgBC,imgBD;
+    ScrollView pantalla;
     ProgressBar Cargando;
     String _USERNAME;
     private FirebaseAuth mAuth;
@@ -68,7 +70,12 @@ public class activity_editarPerfil extends AppCompatActivity {
         imgBC=findViewById(R.id.imgBC);
         imgBD=findViewById(R.id.imgBD);
 
+
+        pantalla = findViewById(R.id.scrollView3);
+        pantalla.setVisibility(View.INVISIBLE);
         Cargando = findViewById(R.id.Cargando);
+
+        mostrarDatos();
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,7 +179,7 @@ public class activity_editarPerfil extends AppCompatActivity {
         ----------------------------------------------------------------*/
 
 
-        mostrarDatos();
+
 
 
     }//Fin onCreate
@@ -193,6 +200,7 @@ public class activity_editarPerfil extends AppCompatActivity {
                 cambiarImg(img);
 
                 Cargando.setVisibility(View.GONE);
+                pantalla.setVisibility(View.VISIBLE);
             }
         });
 

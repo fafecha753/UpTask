@@ -111,7 +111,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
                                 minuto=minute;
                                 txtHoraT.setText(hourOfDay + ":" + minute);
                             }
-                        }, 12, 00, true);
+                        }, 00, 00, true);
                 timePickerDialog.show();
             }
         });

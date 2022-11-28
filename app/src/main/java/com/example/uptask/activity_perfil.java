@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class activity_perfil extends AppCompatActivity {
     ProgressBar pExp;
     ProgressBar Cargando;
     String avatarSelec= "";
+    ScrollView pantallaP;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
@@ -41,10 +43,14 @@ public class activity_perfil extends AppCompatActivity {
         tvNumNivel = findViewById(R.id.tvNumNivel);
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario);
         pExp= findViewById(R.id.pbNivel);
-        Cargando = findViewById(R.id.Cargando);
+
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
 
+        pantallaP = findViewById(R.id.scrollView2);
+        pantallaP.setVisibility(View.INVISIBLE);
+
+        Cargando = findViewById(R.id.Cargando);
         iniciarInformación();
 
         imgBEditarPerfil.setOnClickListener(new View.OnClickListener() {
@@ -102,8 +108,10 @@ public class activity_perfil extends AppCompatActivity {
                 cambiarAvatar(img);
                 //Una vez realizado se desaparece
                 Cargando.setVisibility(View.GONE);
+                pantallaP.setVisibility(View.VISIBLE);
             }
         });
+
     }
     public int experiencia(String nivel){
         int i;

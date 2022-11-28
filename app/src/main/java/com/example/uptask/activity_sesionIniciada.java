@@ -92,15 +92,13 @@ public class activity_sesionIniciada extends AppCompatActivity {
         pExp= findViewById(R.id.pbNivel);
 
         llcontenedor =findViewById(R.id.llContenedor);
+        btnAgregarTarea.setVisibility(View.INVISIBLE);
         llcontenedor.setVisibility(View.INVISIBLE);
+
         Cargando = findViewById(R.id.Cargando);
 
         iniciarInformación();
         cargarTareas();
-
-
-
-
 
 
 
@@ -269,10 +267,11 @@ public class activity_sesionIniciada extends AppCompatActivity {
                             adapterP= new Adapter(getApplicationContext(), lista) {};
                             lsTareas.setAdapter(adapterP);
                             llcontenedor.setVisibility(View.VISIBLE);
+                            btnAgregarTarea.setVisibility(View.VISIBLE);
 
                         } else {
                             llcontenedor.setVisibility(View.VISIBLE);
-
+                            btnAgregarTarea.setVisibility(View.VISIBLE);
                         }
                     }
                 });
