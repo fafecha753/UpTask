@@ -1,5 +1,6 @@
 package com.example.uptask.Modelo;
 
+import android.app.AlarmManager;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.example.uptask.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Adapter extends BaseAdapter{
     Context context;
@@ -52,7 +54,7 @@ public class Adapter extends BaseAdapter{
         TextView lbtMes = view.findViewById(R.id.txtMes);
         LinearLayout lnCat = view.findViewById(R.id.lnCat);
 
-        lbTitulo.setText(lista.get(i).getTitulo());
+        lbTitulo.setText(lista.get(i).getTitulo()+lista.get(i).getAlarmID());
         lbdesc.setText(lista.get(i).getDescripcion());
         lbDia.setText(lista.get(i).getDia());
         lbtMes.setText(lista.get(i).getMes());
@@ -74,4 +76,16 @@ public class Adapter extends BaseAdapter{
             lnCat.setBackgroundResource(R.drawable.cat_4);
         }
     }
+
+    public void stratAlarm(Calendar c){
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+    }
 }
+
+
+
+
+
+
+
+

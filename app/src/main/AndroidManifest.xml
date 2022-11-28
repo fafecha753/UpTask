@@ -66,32 +66,14 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+
         <receiver
             android:name="com.example.uptask.AlarmReceiver"
             android:enabled="true" />
 
-        <service android:name="com.example.uptask.AlarmReceiver"
-            android:enabled="true"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <service
+            android:name="com.example.uptask.NotificationService"
+            android:enabled="true" />
 
 
     </application>

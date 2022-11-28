@@ -4,9 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.DataSetObserver;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -98,6 +102,8 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
 
 
+
+
         btnAgregarTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,18 +119,17 @@ public class activity_sesionIniciada extends AppCompatActivity {
             }
         });
 
+        //Al precionar uno de los items de la lista de tareas
         lsTareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Tarea tarea = lista.get(position);
                 String idTarea =tarea.getId();
-                String fecha = tarea.getFecha_limite();
-                String categoria = tarea.getCategoria();
                 try {
-                    if (compararFechaLimite(fecha)) {
+                    if (compararFechaLimite(getFecha(tarea))) {
                         menuExpirado(idTarea, position);
                     } else {
-                        menuCompletar(idTarea, position, categoria);
+                        menuCompletar(idTarea, position, tarea.getCategoria());
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -133,12 +138,8 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
     }
+
     // Mostrara un alert con las opciones de borrar la tarea
     // o editarla
     private void menuExpirado(String idTarea, int p) {
@@ -208,12 +209,15 @@ public class activity_sesionIniciada extends AppCompatActivity {
         dialog.show();
     }
 
-    private boolean compararFechaLimite(String fechaTarea) throws ParseException {
-        SimpleDateFormat dateFormat = new
-                SimpleDateFormat ("yyyy-MM-dd");
-        String date = dateFormat.format(Calendar.getInstance().getTime());
-        Date fTarea = dateFormat.parse(fechaTarea);
-        Date fActual = dateFormat.parse(date);
+    // compara la echa actual con la fecha que entra por parametro,
+    // si la fecha actual es más antigua que la que entra por
+    // parametro devuelve false
+    private boolean compararFechaLimite(Calendar t) throws ParseException {
+
+        Date  fActual= Calendar.getInstance().getTime();
+        Date  fTarea= t.getTime();
+
+
 
         if(fActual.compareTo(fTarea)>=0){
             return true;
@@ -222,15 +226,11 @@ public class activity_sesionIniciada extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
 
-
-
+    // Carga en el ListView todas las tareas que pertenecen al
+    // usuario logueado
     public void cargarTareas(){
+
         lista= new ArrayList<Tarea>();
         String userui = mAuth.getUid();
         db.collection("Tareas")
@@ -249,7 +249,20 @@ public class activity_sesionIniciada extends AppCompatActivity {
                                 t.setDescripcion(document.get("descripción").toString());
                                 t.setCategoria(document.get("categoria").toString());
                                 t.setFecha_limite(document.get("fecha").toString());
+                                t.setHora(document.get("hora").toString());
+                                t.setDiaria((boolean)document.get("diaria"));
+                                t.setAlarmID(Integer.parseInt(document.get("alarmID").toString()));
                                 lista.add(t);
+
+                                Calendar fecha= getFecha(t);
+
+                                if(fecha.getTimeInMillis()>Calendar.getInstance().getTimeInMillis()) {
+                                    Toast.makeText(getApplicationContext(),
+                                            fecha.getTime()+" entra " + Calendar.getInstance().getTime() ,
+                                            Toast.LENGTH_SHORT).show();
+                                    setAlarm(t.getAlarmID(), fecha.getTimeInMillis(), activity_sesionIniciada.this);
+                                }
+
 
 
                             }
@@ -268,6 +281,25 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
 
     }
+
+    // retorna un objeto Calendar construido a partir de la
+    // informacion del objeto tarea que entra por parametro
+    private Calendar getFecha(Tarea t) {
+        String[] dia= t.getFecha_limite().split("-");
+        String[] hora= t.getHora().split(":");
+        Calendar fecha= Calendar.getInstance();
+        fecha.set(Calendar.YEAR, Integer.parseInt( dia[0]));
+        fecha.set(Calendar.MONTH, Integer.parseInt( dia[1])-1);
+        fecha.set(Calendar.DAY_OF_MONTH, Integer.parseInt( dia[2]));
+        fecha.set(Calendar.HOUR_OF_DAY, Integer.parseInt( hora[0]));
+        fecha.set(Calendar.MINUTE, Integer.parseInt( hora[1]));
+        fecha.set(Calendar.SECOND, 0);
+
+        return fecha;
+    }
+
+    // setea la informacion del perfil del usuario en los espacios
+    // UI correspondientes
     public void iniciarInformación(){
         String userui = mAuth.getUid();
         DocumentReference docRef = db.collection("Users").document(userui);
@@ -286,6 +318,8 @@ public class activity_sesionIniciada extends AppCompatActivity {
             }
         });
     }
+
+    // devuelve el valor que se le asigna a la barra de progreso
     public int experiencia(String nivel){
         int i;
         i=Integer.parseInt(nivel);
@@ -294,6 +328,8 @@ public class activity_sesionIniciada extends AppCompatActivity {
         return i;
     }
 
+    // asigna la imagen correspondiente al avatar del erfil del
+    // isuario, basandose en el ID de la imagen de la ase de datos
     public void cambiarAvatar(String img){
         if(img.equalsIgnoreCase("imgBA")){
             imgPerfil.setImageResource(R.drawable.imgba);
@@ -308,12 +344,17 @@ public class activity_sesionIniciada extends AppCompatActivity {
             imgPerfil.setImageResource(R.drawable.imgbd);
         }
     }
+
+    // devuelve el nivel que tiene actualmente el usuario
+    // dependiendo del numero de tareas realizado
     public String obtenerNivel(String exp){
         int r= (Integer.parseInt(exp)/10);
         String n= String.valueOf(r);
         return n;
     }
 
+    // elimina de la base de datos la tarea correspondiente con
+    // el ID que le entra por parametro
     public void eliminarTarea(String idTarea, String mensaje){
         db.collection("Tareas").document(idTarea)
                 .delete()
@@ -336,22 +377,26 @@ public class activity_sesionIniciada extends AppCompatActivity {
                 });
     }
 
+    //Actualiza los valores de los cotadores
+    // correspondientes a las tareas en la base de datos
     public void completarTarea(String idTarea, String categoria){
         categoria= selectCategoria(categoria);
         String userUi = mAuth.getUid();
 
         DocumentReference contadorTareas= db.collection("Contador_tareas").document(userUi);
         contadorTareas.update(categoria, FieldValue.increment(1));
-        eliminarTarea(idTarea, "Tarea completada");
+
 
         DocumentReference usuarios= db.collection("Users").document(userUi);
         usuarios.update("exp", FieldValue.increment(1));
-        eliminarTarea(idTarea, "Tarea completada");
+
 
         iniciarInformación();
+        eliminarTarea(idTarea, "Tarea completada");
 
     }
 
+    // Devuelve el valor de la categoría correspondiente
     private String selectCategoria(String categoria) {
         if (categoria.equalsIgnoreCase("cat1")){
             return "academico";
@@ -368,5 +413,46 @@ public class activity_sesionIniciada extends AppCompatActivity {
         return null;
     }
 
+    // Crea la alarma correspondiete a la tarea que se designa
+    public static void setAlarm(int i, Long timestamp, Context ctx) {
+        AlarmManager alarmManager = (AlarmManager) ctx.getSystemService(ALARM_SERVICE);
+        Intent alarmIntent = new Intent(ctx, AlarmReceiver.class);
+        PendingIntent pendingIntent;
+        pendingIntent = PendingIntent.getBroadcast(ctx, i, alarmIntent, PendingIntent.FLAG_ONE_SHOT);
+        alarmIntent.setData((Uri.parse("custom://" + System.currentTimeMillis())));
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
