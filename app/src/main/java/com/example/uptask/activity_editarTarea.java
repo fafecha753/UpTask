@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TimePicker;
 
@@ -31,6 +32,7 @@ public class activity_editarTarea extends AppCompatActivity {
 
     Button btnRegresarPrincipal, btnGuardarTarea;
     EditText txtEditNombreTarea,txtEditDescripcionTarea,txtEditFecha, txtEditHora;
+    ProgressBar Cargando;
     private ImageButton btnEditCatUno, btnEditCatDos, btnEditCatTres, btnEditCatCuatro;
     private Switch swEditDiaria;
     private boolean diario= false;
@@ -68,6 +70,8 @@ public class activity_editarTarea extends AppCompatActivity {
         btnEditCatDos= findViewById(R.id.btnEditCatDos);
         btnEditCatTres= findViewById(R.id.btnEditCatTres);
         btnEditCatCuatro= findViewById(R.id.btnEditCatCuatro);
+
+        Cargando = findViewById(R.id.Cargando);
 
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
@@ -189,6 +193,8 @@ public class activity_editarTarea extends AppCompatActivity {
                 txtEditHora.setText(horaLimite);
                 swEditDiaria.setChecked(diario);
                 cambiarCatego(categoria);
+
+                Cargando.setVisibility(View.GONE);
             }
         });
     }//Fin metodo mostrarDatosTarea

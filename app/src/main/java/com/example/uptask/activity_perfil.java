@@ -23,6 +23,7 @@ public class activity_perfil extends AppCompatActivity {
     ImageView imgPerfil;
     TextView tvNombreUsuario, tvNumNivel;
     ProgressBar pExp;
+    ProgressBar Cargando;
     String avatarSelec= "";
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -40,6 +41,7 @@ public class activity_perfil extends AppCompatActivity {
         tvNumNivel = findViewById(R.id.tvNumNivel);
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario);
         pExp= findViewById(R.id.pbNivel);
+        Cargando = findViewById(R.id.Cargando);
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
 
@@ -98,6 +100,8 @@ public class activity_perfil extends AppCompatActivity {
                 tvNumNivel.setText(nivel);
                 pExp.setProgress(experiencia(nivel));
                 cambiarAvatar(img);
+                //Una vez realizado se desaparece
+                Cargando.setVisibility(View.GONE);
             }
         });
     }
