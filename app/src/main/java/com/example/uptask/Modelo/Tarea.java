@@ -5,19 +5,45 @@ import android.os.Parcelable;
 
 public class Tarea implements Parcelable {
 
-    private String usuario, titulo, descripcion, categoria, fecha_limite, id;
-
+    private String usuario, titulo, descripcion, categoria, fecha_limite, hora, id;
+    int alarmID;
+    boolean diaria;
     public Tarea() {
     }
 
-    public Tarea(String usuario, String titulo, String descripcion, String categoria, String fecha_limite, String id) {
+    public Tarea(String usuario, String titulo, String descripcion, String categoria, String fecha_limite, String id, int alarmID) {
         this.id= id;
         this.usuario = usuario;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.categoria = categoria;
         this.fecha_limite = fecha_limite;
+        this.alarmID= alarmID;
 
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public boolean isDiaria() {
+        return diaria;
+    }
+
+    public void setDiaria(boolean diaria) {
+        this.diaria = diaria;
+    }
+
+    public int getAlarmID() {
+        return alarmID;
+    }
+
+    public void setAlarmID(int alarmID) {
+        this.alarmID = alarmID;
     }
 
     public String getId() {

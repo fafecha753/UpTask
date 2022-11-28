@@ -9,6 +9,7 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,7 +47,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
     private Button btnAgregarTarea, btnCancelar;
     private Switch swDiario;
     private boolean diario= false;
-    private int alarmID=1;
+    private int alarmID;
 
     String catSelec= "";
     //declaracion de la variable que almacena el usuario  de firebase y la base de datos
@@ -235,7 +236,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
     public void agregarTarea(View view){
         FirebaseUser user = mAuth.getCurrentUser();
         String userui = user.getUid();
-
+        alarmID=definirId();
         Map<String, Object> tarea = new HashMap<>();
         tarea.put("usuario", userui);
         tarea.put("nombre", txtNombreT.getText().toString());
@@ -244,6 +245,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
         tarea.put("hora", txtHoraT.getText().toString());
         tarea.put("diaria", diario);
         tarea.put("categoria", catSelec);
+        tarea.put("alarmID", alarmID);
 
         DocumentReference documentReferenceU = db.collection("Tareas")
                 .document();
@@ -251,6 +253,8 @@ public class activity_AgregarTarea extends AppCompatActivity {
 
             @Override
             public void onSuccess(Void unused) {
+
+
                 String fecha = String.format(Locale.getDefault(), "%02d-%02d-%02d", anio, mes, diaDelMes);
                 String horaT= hora+":"+minuto+":00";
                 Calendar horaFecha = Calendar.getInstance();
@@ -261,21 +265,25 @@ public class activity_AgregarTarea extends AppCompatActivity {
                 horaFecha.set(Calendar.MINUTE,minuto);
                 horaFecha.set(Calendar.SECOND,0);
 
-                setAlarm (alarmID, horaFecha.getTimeInMillis(), activity_AgregarTarea.this);
+
                 Toast.makeText(getApplicationContext(), "Tarea agregada", Toast.LENGTH_SHORT).show();
             }
         });
     }
-    public static void setAlarm ( int i, Long timestamp, Context ctx){
-
-        AlarmManager alarmManager = (AlarmManager) ctx.getSystemService(ALARM_SERVICE);
-        Intent alarmIntent= new Intent(ctx, AlarmReceiver.class);
-        PendingIntent pendingIntent;
-        pendingIntent= PendingIntent.getBroadcast(ctx, i, alarmIntent, PendingIntent.FLAG_ONE_SHOT);
-        alarmIntent.setData((Uri.parse("custom//"+System.currentTimeMillis())));
-        alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
+    //  toma el id de la preferencias de usuario para crear un id
+    //  para la alarma y que este sea autoincrementable,
+    //  independientemente del usuario que haya iniciado sesión
+    //  o cuantas tareas se hayan creado
+    public int definirId(){
+        int id=0;
+        SharedPreferences preference = getSharedPreferences
+                ("alarmID", Context.MODE_PRIVATE);
+        id= preference.getInt("id", id);
+        SharedPreferences.Editor editor = preference.edit();
+        editor.putInt("id",id+1);
+        editor.commit();
+        return id;
     }
-
 
 
 
