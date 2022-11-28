@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TimePicker;
 
@@ -35,6 +36,7 @@ public class activity_editarTarea extends AppCompatActivity {
     ProgressBar Cargando;
     private ImageButton btnEditCatUno, btnEditCatDos, btnEditCatTres, btnEditCatCuatro;
     private Switch swEditDiaria;
+    ScrollView pantallaT;
     private boolean diario= false;
 
     String idTarea;
@@ -71,10 +73,14 @@ public class activity_editarTarea extends AppCompatActivity {
         btnEditCatTres= findViewById(R.id.btnEditCatTres);
         btnEditCatCuatro= findViewById(R.id.btnEditCatCuatro);
 
-        Cargando = findViewById(R.id.Cargando);
+
 
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
+
+        pantallaT = findViewById(R.id.scrollView4);
+        pantallaT.setVisibility(View.INVISIBLE);
+        Cargando = findViewById(R.id.Cargando);
         mostrarDatosTarea();
 
         //Seleccionar fecha a traves de un date picker
@@ -101,7 +107,7 @@ public class activity_editarTarea extends AppCompatActivity {
 
                                 txtEditHora.setText(hourOfDay + ":" + minute);
                             }
-                        }, 12, 00, false);
+                        }, 00, 00, true);
                 timePickerDialog.show();
             }
         });
@@ -195,8 +201,11 @@ public class activity_editarTarea extends AppCompatActivity {
                 cambiarCatego(categoria);
 
                 Cargando.setVisibility(View.GONE);
+                pantallaT.setVisibility(View.VISIBLE);
             }
+
         });
+
     }//Fin metodo mostrarDatosTarea
 
     public void editarTarea(View view){
