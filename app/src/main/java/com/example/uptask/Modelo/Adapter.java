@@ -54,7 +54,7 @@ public class Adapter extends BaseAdapter{
         TextView lbtMes = view.findViewById(R.id.txtMes);
         LinearLayout lnCat = view.findViewById(R.id.lnCat);
 
-        lbTitulo.setText(lista.get(i).getTitulo()+lista.get(i).getAlarmID());
+        lbTitulo.setText(lista.get(i).getTitulo());
         lbdesc.setText(lista.get(i).getDescripcion());
         lbDia.setText(lista.get(i).getDia());
         lbtMes.setText(lista.get(i).getMes());
