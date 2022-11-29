@@ -153,49 +153,265 @@
                 android:textSize="30sp" />
 
             <LinearLayout
-                android:layout_width="317dp"
-                android:layout_height="81dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/bg_rounded"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imgTrofeo"
-                    android:layout_width="120dp"
-                    android:layout_height="55dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/imglogro" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/LogroEstudio1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_rounded"
+                    android:backgroundTint="#FAFAFA"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/LogroSocial1">
 
-                    <TextView
-                        android:id="@+id/tvTitLogro"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:id="@+id/lnCat5"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="30dp"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="Título del logro"
-                        android:textAlignment="center"
-                        android:textSize="16sp" />
+                        android:background="#FAFAFA"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tvDescLogro"
-                        android:layout_width="match_parent"
+                        <ImageView
+                            android:id="@+id/imageView15"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/imglogro" />
+
+                        <Space
+                            android:layout_width="7dp"
+                            android:layout_height="80dp"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="10"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="Una de Cien"
+                            android:textAlignment="center"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="Has completado la primera tarea en la categoría de Educacion"
+                            android:textAlignment="center"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LogroLaboral1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_rounded"
+                    android:backgroundTint="#FAFAFA"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/LogroEstudio1">
+
+                    <LinearLayout
+                        android:id="@+id/lnCat47"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="30dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="Descripción"
-                        android:textAlignment="center"
-                        android:textSize="16sp" />
+                        android:background="#FAFAFA"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView65"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/imglogro" />
+
+                        <Space
+                            android:layout_width="7dp"
+                            android:layout_height="80dp"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="10"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="Inserción a lo Laboral"
+                            android:textAlignment="center"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="Has completado la primera tarea en la categoría de Laboral"
+                            android:textAlignment="center"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LogroSalud1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_rounded"
+                    android:backgroundTint="#FAFAFA"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/LogroLaboral1">
+
+                    <LinearLayout
+                        android:id="@+id/lnCat154"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FAFAFA"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView167"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/imglogro" />
+
+                        <Space
+                            android:layout_width="7dp"
+                            android:layout_height="80dp"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="10"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="Enfermo"
+                            android:textAlignment="center"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="Has completado la primera tarea en la categoría de Salud"
+                            android:textAlignment="center"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LogroSocial1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_rounded"
+                    android:backgroundTint="#FAFAFA"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:id="@+id/lnCat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FAFAFA"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/imglogro" />
+
+                        <Space
+                            android:layout_width="7dp"
+                            android:layout_height="80dp"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="10"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="El Comienzo de un Camino Social"
+                            android:textAlignment="center"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="Has completado la primera tarea en la categoría de Social"
+                            android:textAlignment="center"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
 

@@ -2,13 +2,17 @@ package com.example.uptask;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,10 +27,13 @@ public class activity_perfil extends AppCompatActivity {
     Button btnRegresarHome, btnCerrarSes;
     ImageView imgPerfil;
     TextView tvNombreUsuario, tvNumNivel;
+
     ProgressBar pExp;
     ProgressBar Cargando;
     String avatarSelec= "";
     ScrollView pantallaP;
+    LinearLayout LogroEstudio1, LogroSocial1,LogroLaboral1,LogroSalud1;
+
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
@@ -35,7 +42,6 @@ public class activity_perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_perfil);
 
-
         imgBEditarPerfil= (ImageButton) findViewById(R.id.btnPerfil);
         btnRegresarHome= (Button) findViewById(R.id.btnCerrarSesion);
         btnCerrarSes= (Button) findViewById(R.id.btnRegresar);
@@ -43,15 +49,24 @@ public class activity_perfil extends AppCompatActivity {
         tvNumNivel = findViewById(R.id.tvNumNivel);
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario);
         pExp= findViewById(R.id.pbNivel);
+        LogroEstudio1=findViewById(R.id.LogroEstudio1);
+        LogroSocial1=findViewById(R.id.LogroSocial1);
+        LogroLaboral1=findViewById(R.id.LogroLaboral1);
+        LogroSalud1=findViewById(R.id.LogroSalud1);
 
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
 
         pantallaP = findViewById(R.id.scrollView2);
         pantallaP.setVisibility(View.INVISIBLE);
+        LogroEstudio1.setVisibility(View.GONE);
+        LogroLaboral1.setVisibility(View.GONE);
+        LogroSalud1.setVisibility(View.GONE);
+        LogroSocial1.setVisibility(View.GONE);
 
         Cargando = findViewById(R.id.Cargando);
         iniciarInformación();
+        revisarLogros();
 
         imgBEditarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +94,31 @@ public class activity_perfil extends AppCompatActivity {
 
     }
 
+    public void revisarLogros(){
+        String userui=mAuth.getUid();
+        DocumentReference doctRefe=db.collection("Logros").document(userui);
+        doctRefe.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String cerebrito = documentSnapshot.get("cerebrito").toString();
+                String obrero = documentSnapshot.get("obrero").toString();
+                String fiestero = documentSnapshot.get("fiestero").toString();
+                String saludable = documentSnapshot.get("saludable").toString();
+
+                if(cerebrito.equalsIgnoreCase("true")){
+                    //Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+                    LogroEstudio1.setVisibility(View.VISIBLE);
+                }if(obrero.equalsIgnoreCase("true")){
+                    LogroLaboral1.setVisibility(View.VISIBLE);
+                }if (fiestero.equalsIgnoreCase("true")){
+                    LogroSocial1.setVisibility(View.VISIBLE);
+                }if(saludable.equalsIgnoreCase("true")){
+                    LogroSalud1.setVisibility(View.VISIBLE);
+                }
+            }//Fin onSuccess
+        });
+
+    }//Fin metodo
 
 
     public void regresar(View view){
