@@ -15,9 +15,5 @@ public class AlarmReceiver extends BroadcastReceiver {
         service1.setData((Uri.parse("custom://" + System.currentTimeMillis())));
         ContextCompat.startForegroundService(context, service1 );
 
-        Toast.makeText(context.getApplicationContext(),
-               " intent.getStringExtra()",
-                Toast.LENGTH_SHORT).show();
-
     }
 }

@@ -139,5 +139,12 @@ public class activity_perfil extends AppCompatActivity {
         return n;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent main = new Intent(this, MainActivity.class);
+        startActivity(main);
+        finish();
+    }
 }
 

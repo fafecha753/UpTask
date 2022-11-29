@@ -114,6 +114,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
             public void onClick(View view) {
                 Intent perfil= new Intent(activity_sesionIniciada.this, activity_perfil.class);
                 startActivity(perfil);
+                finish();
             }
         });
 
@@ -255,9 +256,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
                                 Calendar fecha= getFecha(t);
 
                                 if(fecha.getTimeInMillis()>Calendar.getInstance().getTimeInMillis()) {
-                                    Toast.makeText(getApplicationContext(),
-                                            fecha.getTime()+" entra " + Calendar.getInstance().getTime() ,
-                                            Toast.LENGTH_SHORT).show();
+
                                     setAlarm(t.getAlarmID(), fecha.getTimeInMillis(), activity_sesionIniciada.this);
                                 }
 
@@ -312,10 +311,9 @@ public class activity_sesionIniciada extends AppCompatActivity {
                 tvNumNivel.setText(nivel);
                 pExp.setProgress(experiencia(documentSnapshot.get("exp").toString()));
                 cambiarAvatar(img);
-
-                Cargando.setVisibility(View.GONE);
             }
         });
+
     }
 
     // devuelve el valor que se le asigna a la barra de progreso
@@ -419,7 +417,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
         PendingIntent pendingIntent;
         pendingIntent = PendingIntent.getBroadcast(ctx, i, alarmIntent, PendingIntent.FLAG_ONE_SHOT);
         alarmIntent.setData((Uri.parse("custom://" + System.currentTimeMillis())));
-        alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp-900000, pendingIntent);
     }
 
     @Override
