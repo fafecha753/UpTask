@@ -257,7 +257,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
                                 if(fecha.getTimeInMillis()>Calendar.getInstance().getTimeInMillis()) {
 
-                                    setAlarm(t.getAlarmID(), fecha.getTimeInMillis(), activity_sesionIniciada.this);
+                                    setAlarm(t.getAlarmID(), fecha.getTimeInMillis(), activity_sesionIniciada.this, t);
                                 }
 
 
@@ -411,13 +411,15 @@ public class activity_sesionIniciada extends AppCompatActivity {
     }
 
     // Crea la alarma correspondiete a la tarea que se designa
-    public static void setAlarm(int i, Long timestamp, Context ctx) {
+    public static void setAlarm(int i, Long timestamp, Context ctx, Tarea t) {
         AlarmManager alarmManager = (AlarmManager) ctx.getSystemService(ALARM_SERVICE);
         Intent alarmIntent = new Intent(ctx, AlarmReceiver.class);
+        alarmIntent.putExtra("titulo", t.getTitulo());
+        alarmIntent.putExtra("alarmId", t.getAlarmID());
         PendingIntent pendingIntent;
         pendingIntent = PendingIntent.getBroadcast(ctx, i, alarmIntent, PendingIntent.FLAG_ONE_SHOT);
         alarmIntent.setData((Uri.parse("custom://" + System.currentTimeMillis())));
-        alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp-900000, pendingIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp-300000, pendingIntent);
     }
 
     @Override

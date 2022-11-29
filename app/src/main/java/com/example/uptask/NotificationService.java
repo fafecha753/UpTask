@@ -12,6 +12,7 @@ import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 
 import androidx.core.app.NotificationCompat;
 
@@ -19,7 +20,7 @@ public class NotificationService extends IntentService {
 
     private NotificationManager notificationManager;
     private PendingIntent pendingIntent;
-    private static int NOTIFICATION_ID = 1;
+    private int NOTIFICATION_ID = 1;
     Notification notification;
 
 
@@ -41,9 +42,12 @@ public class NotificationService extends IntentService {
         Resources res = this.getResources();
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
 
-        String message = "Una de tus tareas expira pronto";
-        int notId= 0;
-        String titulo="";
+        Bundle bundle = intent2.getExtras();
+
+
+        String message = "Una de tus tareas expira pronto: \n"+
+                bundle.getString("titulo");
+        NOTIFICATION_ID= bundle.getInt("alarmId");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             final int NOTIFY_ID = 0; // ID of notification
