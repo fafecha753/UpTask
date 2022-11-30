@@ -298,7 +298,6 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
     // setea la informacion del perfil del usuario en los espacios
     // UI correspondientes
-
     public void iniciarInformación(){
         String userui = mAuth.getUid();
         DocumentReference docRef = db.collection("Users").document(userui);
