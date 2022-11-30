@@ -123,12 +123,12 @@ public class activity_sesionIniciada extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Tarea tarea = lista.get(position);
-                String idTarea =tarea.getId();
+
                 try {
                     if (compararFechaLimite(getFecha(tarea))) {
-                        menuExpirado(idTarea, position);
+                        menuExpirado(tarea, position);
                     } else {
-                        menuCompletar(idTarea, position, tarea.getCategoria());
+                        menuCompletar(tarea, position, tarea.getCategoria());
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -141,7 +141,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
     // Mostrara un alert con las opciones de borrar la tarea
     // o editarla
-    private void menuExpirado(String idTarea, int p) {
+    private void menuExpirado(Tarea tarea, int p) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("¿Qué acción desea realizar?")
                 .setTitle("Tarea a expirado");
@@ -150,7 +150,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent editarTarea = new Intent(activity_sesionIniciada.this, activity_editarTarea.class);
-                editarTarea.putExtra("id",idTarea);
+                editarTarea.putExtra("id",tarea.getId());
                 startActivity(editarTarea);
                 finish();
                 //Aquí se llamaria la ventana de editar y se enviaria el id de la tarea desde
@@ -161,7 +161,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
         builder.setNegativeButton("Eliminar Tarea", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                        eliminarTarea(idTarea, "Tarea eliminada");
+                        eliminarTarea(tarea, "Tarea eliminada");
             }
         });
 
@@ -171,7 +171,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
     // Mostrara un alert con las opciones de borrar la tarea
     // o darla por completa
-    private void menuCompletar(String idTarea, int p, String categoria) {
+    private void menuCompletar(Tarea tarea, int p, String categoria) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("¿Qué acción desea realizar?")
                 .setTitle("Tarea vigente");
@@ -179,7 +179,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
         builder.setNegativeButton("Eliminar Tarea", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                eliminarTarea(idTarea, "Tarea eliminada");
+                eliminarTarea(tarea, "Tarea eliminada");
             }
         });
 
@@ -187,7 +187,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent editarTarea = new Intent(activity_sesionIniciada.this, activity_editarTarea.class);
-                editarTarea.putExtra("id",idTarea);
+                editarTarea.putExtra("id",tarea.getId());
                 startActivity(editarTarea);
                 finish();
                 //Aquí se llamaria la ventana de editar y se enviaria el id de la tarea desde
@@ -198,7 +198,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
         builder.setPositiveButton("Completar Tarea", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                completarTarea(idTarea,  categoria);
+                completarTarea(tarea,  categoria);
             }
         });
 
@@ -298,8 +298,6 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
     // setea la informacion del perfil del usuario en los espacios
     // UI correspondientes
-
-    //ANDRES FUI AL BAÑO POR SI ACASO
     public void iniciarInformación(){
         String userui = mAuth.getUid();
         DocumentReference docRef = db.collection("Users").document(userui);
@@ -354,8 +352,8 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
     // elimina de la base de datos la tarea correspondiente con
     // el ID que le entra por parametro
-    public void eliminarTarea(String idTarea, String mensaje){
-        db.collection("Tareas").document(idTarea)
+    public void eliminarTarea(Tarea tarea, String mensaje){
+        db.collection("Tareas").document(tarea.getId())
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -364,6 +362,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
                                 mensaje,
                                 Toast.LENGTH_SHORT).show();
                         cargarTareas();
+                        cancelAlarm(tarea.getAlarmID(), getFecha(tarea).getTimeInMillis(), activity_sesionIniciada.this, tarea );
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -378,7 +377,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
     //Actualiza los valores de los cotadores
     // correspondientes a las tareas en la base de datos
-    public void completarTarea(String idTarea, String categoria){
+    public void completarTarea(Tarea tarea, String categoria){
         categoria= selectCategoria(categoria);
         String userUi = mAuth.getUid();
 
@@ -391,7 +390,7 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
 
         iniciarInformación();
-        eliminarTarea(idTarea, "Tarea completada");
+        eliminarTarea(tarea, "Tarea completada");
 
     }
 
@@ -422,6 +421,17 @@ public class activity_sesionIniciada extends AppCompatActivity {
         pendingIntent = PendingIntent.getBroadcast(ctx, i, alarmIntent, PendingIntent.FLAG_ONE_SHOT);
         alarmIntent.setData((Uri.parse("custom://" + System.currentTimeMillis())));
         alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp-300000, pendingIntent);
+    }
+
+    // Cancelar la alarma correspondiete a la tarea que se designa
+    public static void cancelAlarm(int i, Long timestamp, Context ctx, Tarea t) {
+        AlarmManager alarmManager = (AlarmManager) ctx.getSystemService(ALARM_SERVICE);
+        Intent alarmIntent = new Intent(ctx, AlarmReceiver.class);
+        alarmIntent.putExtra("titulo", t.getTitulo());
+        alarmIntent.putExtra("alarmId", t.getAlarmID());
+        PendingIntent pendingIntent;
+        pendingIntent = PendingIntent.getBroadcast(ctx, i, alarmIntent, PendingIntent.FLAG_ONE_SHOT);
+        alarmManager.cancel(pendingIntent);
     }
 
     @Override
