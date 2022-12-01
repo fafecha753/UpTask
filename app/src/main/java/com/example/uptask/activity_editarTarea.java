@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.uptask.Modelo.Tarea;
 
@@ -169,10 +170,39 @@ public class activity_editarTarea extends AppCompatActivity {
         btnGuardarTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editarTarea(view);
-                volver();
-            }
-        });
+                if(txtEditDescripcionTarea.getText().toString().isEmpty()
+                        || txtEditFecha.getText().toString().isEmpty()
+                        || txtEditNombreTarea.getText().toString().isEmpty()
+                        || txtEditHora.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(),
+                            "Por favor complete los campos solicitados",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    if(catSelec.isEmpty()) {
+                        Toast.makeText(getApplicationContext(),
+                                "Por favor seleccione una categoría",
+                                Toast.LENGTH_SHORT).show();
+                    }else {
+                        Tarea t= new Tarea();
+                        t.setHora(txtEditHora.getText().toString());
+                        t.setFecha_limite(txtEditFecha.getText().toString());
+                        try {
+                            if(compararFechaLimite(getFecha(t))){
+                                Toast.makeText(getApplicationContext(),
+                                        "No se aceptan valores anteriores a la hora y fecha actual",
+                                        Toast.LENGTH_SHORT).show();
+                            }else{
+                                editarTarea(view);
+                                volver();
+                            }
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }
+            }//Fin onClick
+        }); //Fin btnGuardarTarea
 
         btnRegresarPrincipal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -299,7 +329,6 @@ public class activity_editarTarea extends AppCompatActivity {
     // si la fecha actual es más antigua que la que entra por
     // parametro devuelve false
     private boolean compararFechaLimite(Calendar t) throws ParseException {
-
         Date fActual= Calendar.getInstance().getTime();
         Date  fTarea= t.getTime();
         if(fActual.compareTo(fTarea)>=0){
