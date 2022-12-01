@@ -25,8 +25,10 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class activity_editarTarea extends AppCompatActivity {
@@ -292,5 +294,35 @@ public class activity_editarTarea extends AppCompatActivity {
             btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
         }
     }//Fin metodo
+
+    // compara la echa actual con la fecha que entra por parametro,
+    // si la fecha actual es más antigua que la que entra por
+    // parametro devuelve false
+    private boolean compararFechaLimite(Calendar t) throws ParseException {
+
+        Date fActual= Calendar.getInstance().getTime();
+        Date  fTarea= t.getTime();
+        if(fActual.compareTo(fTarea)>=0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // retorna un objeto Calendar construido a partir de la
+    // informacion del objeto tarea que entra por parametro
+    private Calendar getFecha(Tarea t) {
+        String[] dia= t.getFecha_limite().split("-");
+        String[] hora= t.getHora().split(":");
+        Calendar fecha= Calendar.getInstance();
+        fecha.set(Calendar.YEAR, Integer.parseInt( dia[0]));
+        fecha.set(Calendar.MONTH, Integer.parseInt( dia[1])-1);
+        fecha.set(Calendar.DAY_OF_MONTH, Integer.parseInt( dia[2]));
+        fecha.set(Calendar.HOUR_OF_DAY, Integer.parseInt( hora[0]));
+        fecha.set(Calendar.MINUTE, Integer.parseInt( hora[1]));
+        fecha.set(Calendar.SECOND, 0);
+
+        return fecha;
+    }
 
 }//Fin clase

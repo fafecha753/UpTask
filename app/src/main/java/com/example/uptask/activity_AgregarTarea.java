@@ -25,6 +25,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.uptask.Modelo.Tarea;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -34,7 +35,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -183,7 +186,9 @@ public class activity_AgregarTarea extends AppCompatActivity {
             public void onClick(View v) {
                 if(txtDescripcionT.getText().toString().isEmpty()
                         || txtFechaT.getText().toString().isEmpty()
-                        || txtNombreT.getText().toString().isEmpty()){
+                        || txtNombreT.getText().toString().isEmpty()
+                        || txtHoraT.getText().toString().isEmpty()){
+
                     Toast.makeText(getApplicationContext(),
                             "Por favor complete los campos solicitados",
                             Toast.LENGTH_SHORT).show();
@@ -193,11 +198,22 @@ public class activity_AgregarTarea extends AppCompatActivity {
                                 "Por favor seleccione una categoría",
                                 Toast.LENGTH_SHORT).show();
                     }else {
+                        Tarea t= new Tarea();
+                        t.setHora(txtHoraT.getText().toString());
+                        t.setFecha_limite(txtFechaT.getText().toString());
+                        try {
+                            if(compararFechaLimite(getFecha(t))){
+                                Toast.makeText(getApplicationContext(),
+                                        "No se aceptan valores anteriores a la hora y fecha actual",
+                                        Toast.LENGTH_SHORT).show();
+                            }else{
+                                agregarTarea(v);
+                                volver();
+                            }
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
 
-
-                        agregarTarea(v);
-
-                        volver();
                     }
                 }
             }
@@ -286,6 +302,35 @@ public class activity_AgregarTarea extends AppCompatActivity {
     }
 
 
+    // compara la echa actual con la fecha que entra por parametro,
+    // si la fecha actual es más antigua que la que entra por
+    // parametro devuelve false
+    private boolean compararFechaLimite(Calendar t) throws ParseException {
+
+        Date fActual= Calendar.getInstance().getTime();
+        Date  fTarea= t.getTime();
+        if(fActual.compareTo(fTarea)>=0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // retorna un objeto Calendar construido a partir de la
+    // informacion del objeto tarea que entra por parametro
+    private Calendar getFecha(Tarea t) {
+        String[] dia= t.getFecha_limite().split("-");
+        String[] hora= t.getHora().split(":");
+        Calendar fecha= Calendar.getInstance();
+        fecha.set(Calendar.YEAR, Integer.parseInt( dia[0]));
+        fecha.set(Calendar.MONTH, Integer.parseInt( dia[1])-1);
+        fecha.set(Calendar.DAY_OF_MONTH, Integer.parseInt( dia[2]));
+        fecha.set(Calendar.HOUR_OF_DAY, Integer.parseInt( hora[0]));
+        fecha.set(Calendar.MINUTE, Integer.parseInt( hora[1]));
+        fecha.set(Calendar.SECOND, 0);
+
+        return fecha;
+    }
 
 
 
