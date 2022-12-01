@@ -95,7 +95,7 @@
                             android:layout_height="32dp"
                             android:layout_weight="1"
                             android:backgroundTint="#006200EE"
-                            app:srcCompat="@drawable/editarperfil" />
+                            app:srcCompat="@drawable/editar_perfil" />
 
                     </LinearLayout>
 
