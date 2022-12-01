@@ -60,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:ems="10"
+                    android:maxLength="13"
                     android:fontFamily="@font/roboto"
                     android:inputType="textPersonName"
                     android:textAlignment="center"

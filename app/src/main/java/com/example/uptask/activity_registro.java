@@ -43,11 +43,21 @@ public class activity_registro extends AppCompatActivity {
     ImageButton imgBD;
     Button btnRegresarRegistro;
     Button btnRegistro;
+
+    //Se hace el patrón a seguir para la contraseña
     private static final String PASSWORD_REGEX =
             "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[?_/\\-!@#$%^&+=])(?=\\S+$).{8,16}$";
 
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile(PASSWORD_REGEX);
+
+    //Se hace el patrón a seguir para el nombre de usuario, que se acepten mayúsculas, minúsculas y
+    private static final String USERNAME_REGEX =
+            "^[A-Za-z0-9]{6,13}$";
+
+
+    private static final Pattern USERNAME_PATTERN =
+            Pattern.compile(USERNAME_REGEX);
 
     String avatarSelec= "";
 
@@ -87,7 +97,15 @@ public class activity_registro extends AppCompatActivity {
                             "Por favor complete los campos solicitados",
                             Toast.LENGTH_SHORT).show();
                 }else{
-                    if(avatarSelec.isEmpty()) {
+
+                    String username = txtUsuario.getText().toString().trim();
+                    if (!USERNAME_PATTERN.matcher(username).matches()) {
+                        Toast.makeText(getApplicationContext(), "Formato de usuario invalido. ", Toast.LENGTH_SHORT).show();
+                        txtUsuario.setError("Solo se permiten mayúsculas, minúsculas y/o números. Sin espacios. Mínimo 6 caracteres, máximo 13.");
+                        return;
+                    } else {
+
+                        if(avatarSelec.isEmpty()) {
                         Toast.makeText(getApplicationContext(),
                                 "Por favor seleccione un avatar",
                                 Toast.LENGTH_SHORT).show();
@@ -101,13 +119,14 @@ public class activity_registro extends AppCompatActivity {
 
                         String contrasena = txtPassword.getText().toString().trim();
                         if (!PASSWORD_PATTERN.matcher(contrasena).matches()) {
-                            Toast.makeText(getApplicationContext(), "Formato de contraseña invalido", Toast.LENGTH_SHORT).show();
-                            txtPassword.setError("Formato de contraseña invalido");
+                            Toast.makeText(getApplicationContext(), "Formato de contraseña invalido.", Toast.LENGTH_SHORT).show();
+                            txtPassword.setError("Debe incluir al menos una mayúscula, minúscula, un número y un signo. Mínimo 8 caracteres, máximo 18.");
                             return;
                         }
 
                         agregarUsuario(v);
 
+                    }
                     }
                 }
             }

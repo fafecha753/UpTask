@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_degradadoeditarperfil"
+    android:background="#D7D1E0"
     tools:context=".activity_AgregarTarea">
 
     <ScrollView
@@ -34,9 +34,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Agregar tarea"
+                android:text="Crear tarea"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="#444343"
                 android:textSize="34sp" />
 
             <LinearLayout
@@ -70,6 +70,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto"
                     android:inputType="textPersonName"
+                    android:maxLength="20"
                     android:textAlignment="center"
                     android:textColor="#171717" />
 
@@ -92,6 +93,7 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto"
                     android:inputType="textLongMessage"
+                    android:maxLength="30"
                     android:textAlignment="center"
                     android:textColor="#171717" />
 
@@ -147,9 +149,9 @@
 
                     <Switch
                         android:id="@+id/swDiaria"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="3"
                         android:text="Tarea diaria"
                         android:thumb="@drawable/common_google_signin_btn_icon_light_normal_background"
                         android:thumbTint="#384570"
