@@ -34,6 +34,11 @@ public class activity_perfil extends AppCompatActivity {
     ScrollView pantallaP;
     LinearLayout LogroEstudio1, LogroSocial1,LogroLaboral1,LogroSalud1;
 
+    int academico=0;
+    int laboral=0;
+    int salud=0;
+    int social=0;
+
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
@@ -66,7 +71,8 @@ public class activity_perfil extends AppCompatActivity {
 
         Cargando = findViewById(R.id.Cargando);
         iniciarInformación();
-        revisarLogros();
+        contarTareas();
+
 
         imgBEditarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +100,46 @@ public class activity_perfil extends AppCompatActivity {
 
     }
 
+    private void contarTareas() {
+        String userui=mAuth.getUid();
+
+        DocumentReference doctRefe=db.collection("Contador_tareas").document(userui);
+        doctRefe.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                 academico = Integer.parseInt(documentSnapshot.get("academico").toString());
+                 laboral = Integer.parseInt(documentSnapshot.get("laboral").toString());
+                salud = Integer.parseInt(documentSnapshot.get("salud").toString());
+                 social = Integer.parseInt(documentSnapshot.get("social").toString());
+
+                boolean academicob=false;
+                boolean laboralb=false;
+                boolean saludb=false;
+                boolean socialb=false;
+                if(academico>=50){
+                    academicob=true;
+                }if (laboral>=50){
+                    laboralb=true;
+                }if(social>=50){
+                    socialb=true;
+                }if(salud>=50){
+                    saludb=true;
+                }
+
+                db.collection("Logros").document(userui).update(
+                        "cerebrito", academicob,
+                        "obrero", laboralb,
+                        "fiestero", socialb,
+                        "saludable", saludb
+                );
+                revisarLogros();
+            }//Fin onSuccess
+
+
+        });
+
+    }//Fin metodo
+
     public void revisarLogros(){
         String userui=mAuth.getUid();
         DocumentReference doctRefe=db.collection("Logros").document(userui);
@@ -105,8 +151,8 @@ public class activity_perfil extends AppCompatActivity {
                 String fiestero = documentSnapshot.get("fiestero").toString();
                 String saludable = documentSnapshot.get("saludable").toString();
 
+
                 if(cerebrito.equalsIgnoreCase("true")){
-                    //Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
                     LogroEstudio1.setVisibility(View.VISIBLE);
                 }if(obrero.equalsIgnoreCase("true")){
                     LogroLaboral1.setVisibility(View.VISIBLE);
