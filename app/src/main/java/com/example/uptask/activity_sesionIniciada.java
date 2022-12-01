@@ -215,9 +215,6 @@ public class activity_sesionIniciada extends AppCompatActivity {
 
         Date  fActual= Calendar.getInstance().getTime();
         Date  fTarea= t.getTime();
-
-
-
         if(fActual.compareTo(fTarea)>=0){
             return true;
         }else{
