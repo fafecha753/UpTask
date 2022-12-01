@@ -155,15 +155,17 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/LogroEstudio1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="95dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/bg_rounded"
                     android:backgroundTint="#FAFAFA"
                     android:orientation="horizontal"
@@ -205,7 +207,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Una de Cien"
+                            android:text="El Gran Estudiante"
                             android:textAlignment="center"
                             android:textColor="#000000" />
 
@@ -215,7 +217,7 @@
                             android:fontFamily="@font/roboto"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Has completado la primera tarea en la categoría de Educacion"
+                            android:text="Has completado 100 tareas en la categoría de Estudios"
                             android:textAlignment="center"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -228,6 +230,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/bg_rounded"
                     android:backgroundTint="#FAFAFA"
                     android:orientation="horizontal"
@@ -269,7 +272,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Inserción a lo Laboral"
+                            android:text="Trabajador Exitoso"
                             android:textAlignment="center"
                             android:textColor="#000000" />
 
@@ -279,7 +282,7 @@
                             android:fontFamily="@font/roboto"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Has completado la primera tarea en la categoría de Laboral"
+                            android:text="Has completado 15 tareas en la categoría de Laboral"
                             android:textAlignment="center"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -292,6 +295,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/bg_rounded"
                     android:backgroundTint="#FAFAFA"
                     android:orientation="horizontal"
@@ -397,7 +401,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="El Comienzo de un Camino Social"
+                            android:text="Amigable"
                             android:textAlignment="center"
                             android:textColor="#000000" />
 
@@ -407,7 +411,7 @@
                             android:fontFamily="@font/roboto"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Has completado la primera tarea en la categoría de Social"
+                            android:text="Has completado 15 tareas en la categoría de Social"
                             android:textAlignment="center"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -418,7 +422,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="40dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
