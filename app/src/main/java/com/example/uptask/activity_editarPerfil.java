@@ -94,7 +94,7 @@ public class activity_editarPerfil extends AppCompatActivity {
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent salirEditar= new Intent(activity_editarPerfil.this, MainActivity.class);
+                Intent salirEditar= new Intent(activity_editarPerfil.this, activity_perfil.class);
                 startActivity(salirEditar);
                 finish();
             }

@@ -246,7 +246,6 @@ public class activity_sesionIniciada extends AppCompatActivity {
                                 t.setCategoria(document.get("categoria").toString());
                                 t.setFecha_limite(document.get("fecha").toString());
                                 t.setHora(document.get("hora").toString());
-                                t.setDiaria((boolean)document.get("diaria"));
                                 t.setAlarmID(Integer.parseInt(document.get("alarmID").toString()));
                                 lista.add(t);
 

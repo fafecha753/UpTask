@@ -116,13 +116,13 @@ public class activity_perfil extends AppCompatActivity {
                 boolean laboralb=false;
                 boolean saludb=false;
                 boolean socialb=false;
-                if(academico>=50){
+                if(academico>=5){
                     academicob=true;
-                }if (laboral>=50){
+                }if (laboral>=5){
                     laboralb=true;
-                }if(social>=50){
+                }if(social>=5){
                     socialb=true;
-                }if(salud>=50){
+                }if(salud>=5){
                     saludb=true;
                 }
 

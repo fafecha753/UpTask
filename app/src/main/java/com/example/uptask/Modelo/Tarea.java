@@ -7,7 +7,6 @@ public class Tarea implements Parcelable {
 
     private String usuario, titulo, descripcion, categoria, fecha_limite, hora, id;
     int alarmID;
-    boolean diaria;
     public Tarea() {
     }
 
@@ -30,13 +29,6 @@ public class Tarea implements Parcelable {
         this.hora = hora;
     }
 
-    public boolean isDiaria() {
-        return diaria;
-    }
-
-    public void setDiaria(boolean diaria) {
-        this.diaria = diaria;
-    }
 
     public int getAlarmID() {
         return alarmID;

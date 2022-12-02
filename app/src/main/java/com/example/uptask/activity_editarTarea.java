@@ -38,9 +38,7 @@ public class activity_editarTarea extends AppCompatActivity {
     EditText txtEditNombreTarea,txtEditDescripcionTarea,txtEditFecha, txtEditHora;
     ProgressBar Cargando;
     private ImageButton btnEditCatUno, btnEditCatDos, btnEditCatTres, btnEditCatCuatro;
-    private Switch swEditDiaria;
     ScrollView pantallaT;
-    private boolean diario= false;
 
     String idTarea;
     String catSelec= "";
@@ -63,7 +61,6 @@ public class activity_editarTarea extends AppCompatActivity {
         txtEditDescripcionTarea=findViewById(R.id.txtEditDescripcionTarea);
         txtEditFecha=findViewById(R.id.txtEditFecha);
         txtEditHora=findViewById(R.id.txtEditHora);
-        swEditDiaria=findViewById(R.id.swEditDiaria);
 
         //Extraiga el id
         Bundle extras = getIntent().getExtras();
@@ -115,16 +112,6 @@ public class activity_editarTarea extends AppCompatActivity {
             }
         });
 
-        swEditDiaria.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    diario=true;
-                }else{
-                    diario=false;
-                }
-            }
-        });
 
         btnEditCatUno.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,12 +211,10 @@ public class activity_editarTarea extends AppCompatActivity {
                 String fecha=documentSnapshot.get("fecha").toString();
                 String categoria=documentSnapshot.get("categoria").toString();
                 String horaLimite=documentSnapshot.get("hora").toString();
-                diario=documentSnapshot.getBoolean("diaria");
                 txtEditNombreTarea.setText(nombre);
                 txtEditDescripcionTarea.setText(descripcion);
                 txtEditFecha.setText(fecha);
                 txtEditHora.setText(horaLimite);
-                swEditDiaria.setChecked(diario);
                 cambiarCatego(categoria);
 
                 Cargando.setVisibility(View.GONE);
@@ -247,8 +232,7 @@ public class activity_editarTarea extends AppCompatActivity {
                 "descripción", txtEditDescripcionTarea.getText().toString().trim(),
                 "fecha", txtEditFecha.getText().toString().trim(),
                 "hora", txtEditHora.getText().toString().trim(),
-                "categoria",catSelec,
-                "diaria", diario
+                "categoria",catSelec
         );
     }//Fin del metodo
 
