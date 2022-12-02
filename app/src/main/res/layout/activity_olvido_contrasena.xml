@@ -104,7 +104,7 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
                 android:backgroundTint="#302E33"
                 android:fontFamily="@font/roboto"
                 android:onClick="regresar"

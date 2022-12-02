@@ -59,8 +59,8 @@
                 android:paddingEnd="5dp"
                 android:text="Descripción de la tarea, pues es una descripción y es algo larga"
                 android:textAlignment="textStart"
-                android:textColor="#D8000000"
-                android:textSize="16sp" />
+                android:textColor="#DA303030"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:foregroundTint="@color/colorCuatro"
     tools:context=".activity_sesionIniciada">
 
 
@@ -21,12 +22,12 @@
         android:id="@+id/llContenedor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#D9D9D9"
+        android:background="#D7D1E0"
         android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:visibility="visible"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -74,7 +75,7 @@
                         android:text="Nombre"
                         android:textAlignment="viewStart"
                         android:textColor="#FFFFFF"
-                        android:textSize="24sp"
+                        android:textSize="23sp"
                         android:textStyle="bold" />
 
                     <Space
@@ -84,7 +85,7 @@
 
                     <ImageButton
                         android:id="@+id/btnPerfil"
-                        android:layout_width="10dp"
+                        android:layout_width="32dp"
                         android:layout_height="30dp"
                         android:layout_weight="1"
                         android:backgroundTint="#006200EE"
@@ -139,8 +140,7 @@
                             android:layout_width="177dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|right"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginEnd="10dp"
+                            android:layout_marginStart="10dp"
                             android:layout_weight="1"
                             android:progress="40"
                             android:progressBackgroundTint="#FAFAFA"
@@ -170,16 +170,13 @@
         android:id="@+id/btnAgTare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="50dp"
         android:clickable="true"
         android:src="@drawable/mas"
-        android:tint="#FFFFFF"
-        app:backgroundTint="#1E47FF"
+        app:backgroundTint="#0B2B52"
+        app:backgroundTintMode="screen"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="#00FFFFFF"
-        tools:rippleColor="#FFFFFF"
-        tools:srcCompat="@drawable/mas" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

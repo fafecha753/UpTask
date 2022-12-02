@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_degradadoeditarperfil"
+    android:background="#D7D1E0"
     tools:context=".activity_editarPerfil">
 
     <ProgressBar
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="45dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Editar Perfil"
                 android:textColor="#444343"
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="50sp"
+                android:layout_marginTop="35sp"
                 android:background="@drawable/bg_rounded"
                 android:orientation="vertical"
                 android:paddingLeft="140px"
@@ -75,7 +75,8 @@
                     android:layout_marginTop="20dp"
                     android:text="Cambiar contraseña"
                     android:textAlignment="center"
-                    android:textColor="#5C5B5B" />
+                    android:textColor="#5C5B5B"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -83,19 +84,20 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36sp"
+                android:layout_marginTop="50dp"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:text="Elegir Avatar"
                 android:textColor="#302E33"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/linearLayout4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:background="#302E33"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -156,34 +158,36 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
                 android:layout_marginTop="60sp"
+                android:layout_marginRight="35dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnCancelar"
-                    android:layout_width="180dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="15dp"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="#302E33"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
                     android:text="Regresar"
                     android:textAllCaps="false"
-                    android:textSize="14sp" />
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/btnGuardar"
-                    android:layout_width="180dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="15dp"
+                    android:layout_width="200dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="#0B2B52"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
                     android:text="Guardar"
                     android:textAllCaps="false"
-                    android:textSize="14sp" />
+                    android:textSize="18sp" />
 
             </LinearLayout>
 

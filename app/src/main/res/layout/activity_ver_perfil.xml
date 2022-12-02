@@ -48,7 +48,7 @@
                 android:textSize="40sp" />
 
             <LinearLayout
-                android:layout_width="325dp"
+                android:layout_width="350dp"
                 android:layout_height="106dp"
                 android:layout_gravity="center"
                 android:background="@drawable/bg_roundedgrey"
@@ -80,14 +80,15 @@
 
                         <TextView
                             android:id="@+id/tvNombreUsuario"
-                            android:layout_width="147dp"
+                            android:layout_width="182dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:fontFamily="@font/roboto"
+                            android:gravity="center"
                             android:text="Nombre"
                             android:textAlignment="textStart"
                             android:textColor="#FFFFFF"
-                            android:textSize="24sp" />
+                            android:textSize="20sp" />
 
                         <ImageButton
                             android:id="@+id/btnPerfil"
@@ -100,30 +101,38 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="223dp"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/tvNivel"
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:fontFamily="@font/roboto"
-                            android:text="Nivel"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
+                            android:background="@drawable/bg_level"
+                            android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/tvNumNivel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/roboto"
-                            android:text="1"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
+                            <TextView
+                                android:id="@+id/tvNivel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/roboto"
+                                android:text="Nivel"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tvNumNivel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/roboto"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp" />
+                        </LinearLayout>
 
                         <ProgressBar
                             android:id="@+id/pbNivel"
@@ -131,7 +140,7 @@
                             android:layout_width="145dp"
                             android:layout_height="match_parent"
                             android:layout_gravity="right"
-                            android:layout_marginStart="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_weight="1"
                             android:progress="40"
                             android:progressBackgroundTint="#FAFAFA"
@@ -209,7 +218,8 @@
                             android:paddingEnd="5dp"
                             android:text="El Gran Estudiante"
                             android:textAlignment="center"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -219,7 +229,7 @@
                             android:paddingEnd="5dp"
                             android:text="Has completado 100 tareas en la categoría de Estudios"
                             android:textAlignment="center"
-                            android:textColor="#000000" />
+                            android:textColor="#DA303030" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -274,7 +284,8 @@
                             android:paddingEnd="5dp"
                             android:text="Trabajador Exitoso"
                             android:textAlignment="center"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -284,7 +295,7 @@
                             android:paddingEnd="5dp"
                             android:text="Has completado 15 tareas en la categoría de Laboral"
                             android:textAlignment="center"
-                            android:textColor="#000000" />
+                            android:textColor="#D9303030" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -339,7 +350,8 @@
                             android:paddingEnd="5dp"
                             android:text="Enfermo"
                             android:textAlignment="center"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -349,7 +361,7 @@
                             android:paddingEnd="5dp"
                             android:text="Has completado la primera tarea en la categoría de Salud"
                             android:textAlignment="center"
-                            android:textColor="#000000" />
+                            android:textColor="#D9000000" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -403,7 +415,8 @@
                             android:paddingEnd="5dp"
                             android:text="Amigable"
                             android:textAlignment="center"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -413,16 +426,17 @@
                             android:paddingEnd="5dp"
                             android:text="Has completado 15 tareas en la categoría de Social"
                             android:textAlignment="center"
-                            android:textColor="#000000" />
+                            android:textColor="#D9000000" />
                     </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="344dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginBottom="50dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -433,8 +447,8 @@
 
                 <Button
                     android:id="@+id/btnRegresar"
-                    android:layout_width="95dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="170dp"
+                    android:layout_height="60dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="#630E0E"
@@ -445,8 +459,8 @@
 
                 <Button
                     android:id="@+id/btnCerrarSesion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="56dp"
+                    android:layout_width="170dp"
+                    android:layout_height="60dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="#302E33"
