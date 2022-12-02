@@ -48,8 +48,6 @@ public class activity_AgregarTarea extends AppCompatActivity {
     private TextView txtNombreT, txtDescripcionT, txtFechaT, txtHoraT;
     private ImageButton   btnCatUno, btnCatDos, btnCatTres, btnCatCuatro;
     private Button btnAgregarTarea, btnCancelar;
-    private Switch swDiario;
-    private boolean diario= false;
     private int alarmID;
 
     String catSelec= "";
@@ -76,7 +74,6 @@ public class activity_AgregarTarea extends AppCompatActivity {
         txtHoraT = findViewById(R.id.txtHora);
         txtDescripcionT = findViewById(R.id.txtDescripcionTarea);
         txtNombreT = findViewById(R.id.txtNombreTarea);
-        swDiario = findViewById(R.id.swDiaria);
 
         btnAgregarTarea= findViewById(R.id.btnAgregarTarea);
         btnCancelar= findViewById(R.id.btnCancelarTarea);
@@ -119,16 +116,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
             }
         });
 
-        swDiario.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    diario=true;
-                }else{
-                    diario=false;
-                }
-            }
-        });
+
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -259,7 +247,6 @@ public class activity_AgregarTarea extends AppCompatActivity {
         tarea.put("descripción", txtDescripcionT.getText().toString());
         tarea.put("fecha", txtFechaT.getText().toString());
         tarea.put("hora", txtHoraT.getText().toString());
-        tarea.put("diaria", diario);
         tarea.put("categoria", catSelec);
         tarea.put("alarmID", alarmID);
 
