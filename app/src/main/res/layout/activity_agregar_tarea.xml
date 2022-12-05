@@ -166,6 +166,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10sp"
+                    android:background="#D6D0DF"
                     android:orientation="horizontal">
 
                     <ImageButton
@@ -173,34 +174,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.6"
-                        android:background="#00FFFFFF"
+                        android:background="#D6D0DF"
                         app:srcCompat="@drawable/cat1" />
 
                     <ImageButton
                         android:id="@+id/btnCatDos"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-5sp"
                         android:layout_weight="0.6"
-                        android:background="#00FFFFFF"
+                        android:background="#D6D0DF"
                         app:srcCompat="@drawable/cat2" />
 
                     <ImageButton
                         android:id="@+id/btnCatTres"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-5sp"
                         android:layout_weight="0.6"
-                        android:background="#00FFFFFF"
+                        android:background="#D6D0DF"
                         app:srcCompat="@drawable/cat3" />
 
                     <ImageButton
                         android:id="@+id/btnCatCuatro"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-5sp"
                         android:layout_weight="0.6"
-                        android:background="#00FFFFFF"
+                        android:background="#D6D0DF"
                         app:srcCompat="@drawable/cat4" />
                 </LinearLayout>
             </LinearLayout>
