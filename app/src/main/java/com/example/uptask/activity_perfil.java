@@ -109,6 +109,7 @@ public class activity_perfil extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
 
+
                 salud = Integer.parseInt(documentSnapshot.get("salud").toString());
                 laboral = Integer.parseInt(documentSnapshot.get("laboral").toString());
                 social = Integer.parseInt(documentSnapshot.get("social").toString());
@@ -119,13 +120,13 @@ public class activity_perfil extends AppCompatActivity {
                 boolean socialb=false;
                 boolean academicob=false;
 
-                if(salud>=1){
+                if(salud>=100){
                     saludb=true;
-                }if (laboral>=15){
+                }if (laboral>=5){
                     laboralb=true;
-                }if(social>=5){
+                }if(social>=15){
                     socialb=true;
-                }if(academico>=100){
+                }if(academico>=1){
                     academicob=true;
                 }
 
