@@ -113,43 +113,68 @@ public class activity_editarTarea extends AppCompatActivity {
         });
 
 
+
+
+//Cambia los atributos de los botones de selección de avatar, según sean presionados
         btnEditCatUno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 catSelec="cat1";
+                btnEditCatUno.setEnabled(false);
+                btnEditCatDos.setEnabled(true);
+                btnEditCatTres.setEnabled(true);
+                btnEditCatCuatro.setEnabled(true);
+
                 btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
-                btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+                btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+                btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+                btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
             }
         });
+
+
         btnEditCatDos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 catSelec="cat3";
-                btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+                btnEditCatUno.setEnabled(true);
+                btnEditCatDos.setEnabled(false);
+                btnEditCatTres.setEnabled(true);
+                btnEditCatCuatro.setEnabled(true);
+
+                btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
                 btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
-                btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+                btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+                btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
             }
         });
         btnEditCatTres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 catSelec="cat2";
-                btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+                btnEditCatUno.setEnabled(true);
+                btnEditCatDos.setEnabled(true);
+                btnEditCatTres.setEnabled(false);
+                btnEditCatCuatro.setEnabled(true);
+
+                btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+                btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
                 btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
-                btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+                btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
             }
         });
         btnEditCatCuatro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 catSelec="cat4";
-                btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-                btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+                btnEditCatUno.setEnabled(true);
+                btnEditCatDos.setEnabled(true);
+                btnEditCatTres.setEnabled(true);
+                btnEditCatCuatro.setEnabled(false);
+
+                btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+                btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+                btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
                 btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
             }
         });
@@ -269,9 +294,9 @@ public class activity_editarTarea extends AppCompatActivity {
             btnEditCatCuatro.setEnabled(true);
 
             btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
-            btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-            btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-            btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+            btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+            btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
 
         }else if(variable.equals("cat3")){
             catSelec="cat3";
@@ -280,10 +305,10 @@ public class activity_editarTarea extends AppCompatActivity {
             btnEditCatTres.setEnabled(true);
             btnEditCatCuatro.setEnabled(true);
 
-            btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
             btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
-            btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-            btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+            btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
         }else if(variable.equals("cat2")){
             catSelec="cat2";
             btnEditCatUno.setEnabled(true);
@@ -291,10 +316,10 @@ public class activity_editarTarea extends AppCompatActivity {
             btnEditCatTres.setEnabled(false);
             btnEditCatCuatro.setEnabled(true);
 
-            btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-            btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+            btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
             btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
-            btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
         }else if(variable.equals("cat4")){
             catSelec="cat4";
             btnEditCatUno.setEnabled(true);
@@ -302,9 +327,9 @@ public class activity_editarTarea extends AppCompatActivity {
             btnEditCatTres.setEnabled(true);
             btnEditCatCuatro.setEnabled(false);
 
-            btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-            btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
-            btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorTres));
+            btnEditCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+            btnEditCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
+            btnEditCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
             btnEditCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
         }
     }//Fin metodo
