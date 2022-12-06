@@ -217,7 +217,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="El Gran Estudiante"
+                            android:text="Enfermo"
                             android:textAlignment="center"
                             android:textColor="#000000"
                             android:textSize="16sp" />
@@ -228,7 +228,7 @@
                             android:fontFamily="@font/roboto"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Has completado 100 tareas en la categoría de Estudios"
+                            android:text="Has completado la primera tarea en la categoría de Salud"
                             android:textAlignment="center"
                             android:textColor="#DA303030" />
                     </LinearLayout>
@@ -284,7 +284,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Trabajador Exitoso"
+                            android:text="Amigable"
                             android:textAlignment="center"
                             android:textColor="#000000"
                             android:textSize="16sp" />
@@ -295,7 +295,7 @@
                             android:fontFamily="@font/roboto"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Has completado 15 tareas en la categoría de Laboral"
+                            android:text="Has completado 5 tareas en la categoría de Social"
                             android:textAlignment="center"
                             android:textColor="#D9303030" />
                     </LinearLayout>
@@ -351,7 +351,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Enfermo"
+                            android:text="El Gran Estudiante"
                             android:textAlignment="center"
                             android:textColor="#000000"
                             android:textSize="16sp" />
@@ -362,7 +362,7 @@
                             android:fontFamily="@font/roboto"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Has completado la primera tarea en la categoría de Salud"
+                            android:text="Has completado 100 tareas en la categoría de Estudios"
                             android:textAlignment="center"
                             android:textColor="#D9000000" />
                     </LinearLayout>
@@ -417,7 +417,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Amigable"
+                            android:text="Trabajador Exitoso"
                             android:textAlignment="center"
                             android:textColor="#000000"
                             android:textSize="16sp" />
@@ -428,7 +428,7 @@
                             android:fontFamily="@font/roboto"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Has completado 5 tareas en la categoría de Social"
+                            android:text="Has completado 15 tareas en la categoría de Laboral"
                             android:textAlignment="center"
                             android:textColor="#D9000000" />
                     </LinearLayout>
