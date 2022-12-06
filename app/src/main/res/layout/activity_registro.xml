@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto"
-                    android:text="Usuario"
+                    android:text="Nombre de Usuario"
                     android:textAlignment="center"
                     android:textColor="#302E33"
                     android:textSize="20sp" />
