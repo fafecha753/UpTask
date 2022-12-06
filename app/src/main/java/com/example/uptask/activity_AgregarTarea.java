@@ -135,7 +135,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
                 btnCatTres.setEnabled(true);
                 btnCatCuatro.setEnabled(true);
 
-                btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorCuatro));
+                btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
                 btnCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
                 btnCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
                 btnCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
@@ -152,7 +152,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
                 btnCatCuatro.setEnabled(true);
 
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
-                btnCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorCuatro));
+                btnCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
                 btnCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
                 btnCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
             }
@@ -169,7 +169,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
 
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
                 btnCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
-                btnCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorCuatro));
+                btnCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
                 btnCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
             }
         });
@@ -185,7 +185,7 @@ public class activity_AgregarTarea extends AppCompatActivity {
                 btnCatUno.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
                 btnCatDos.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
                 btnCatTres.setBackgroundTintList(getResources().getColorStateList(R.color.colorSeis));
-                btnCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorCuatro));
+                btnCatCuatro.setBackgroundTintList(getResources().getColorStateList(R.color.colorDos));
             }
         });
 
