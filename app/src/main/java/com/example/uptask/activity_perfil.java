@@ -116,13 +116,13 @@ public class activity_perfil extends AppCompatActivity {
                 boolean laboralb=false;
                 boolean saludb=false;
                 boolean socialb=false;
-                if(academico>=5){
+                if(academico>=100){
                     academicob=true;
-                }if (laboral>=5){
+                }if (laboral>=15){
                     laboralb=true;
                 }if(social>=5){
                     socialb=true;
-                }if(salud>=5){
+                }if(salud>=1){
                     saludb=true;
                 }
 
@@ -190,7 +190,7 @@ public class activity_perfil extends AppCompatActivity {
                 String img = documentSnapshot.get("avatar").toString();
                 tvNombreUsuario.setText(nombre);
                 tvNumNivel.setText(nivel);
-                pExp.setProgress(experiencia(nivel));
+                pExp.setProgress(experiencia(documentSnapshot.get("exp").toString()));
                 cambiarAvatar(img);
                 //Una vez realizado se desaparece
                 Cargando.setVisibility(View.GONE);
@@ -201,8 +201,10 @@ public class activity_perfil extends AppCompatActivity {
     }
     public int experiencia(String nivel){
         int i;
-        i=Integer.parseInt(nivel)%10;
-        return i*10;
+        i=Integer.parseInt(nivel);
+        i=i%10;
+        i=i*10;
+        return i;
     }
 
     public void cambiarAvatar(String img){
