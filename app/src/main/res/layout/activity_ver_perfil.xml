@@ -180,7 +180,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/LogroSocial1">
+                    app:layout_constraintTop_toBottomOf="@+id/LogroEstudio1">
 
                     <LinearLayout
                         android:id="@+id/lnCat5"
@@ -247,7 +247,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/LogroEstudio1">
+                    app:layout_constraintTop_toBottomOf="@+id/LogroLaboral1">
 
                     <LinearLayout
                         android:id="@+id/lnCat47"
@@ -314,7 +314,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/LogroLaboral1">
+                    app:layout_constraintTop_toBottomOf="@+id/LogroSalud1">
 
                     <LinearLayout
                         android:id="@+id/lnCat154"
@@ -380,9 +380,9 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toBottomOf="@+id/LogroSocial1">
 
-                    <LinearLayout
+                <LinearLayout
                         android:id="@+id/lnCat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

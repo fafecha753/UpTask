@@ -32,7 +32,7 @@ public class activity_perfil extends AppCompatActivity {
     ProgressBar Cargando;
     String avatarSelec= "";
     ScrollView pantallaP;
-    LinearLayout LogroEstudio1, LogroSocial1,LogroLaboral1,LogroSalud1;
+    LinearLayout LogroSalud1, LogroSocial1,LogroLaboral1,LogroEstudio1;
 
     int academico=0;
     int laboral=0;
@@ -54,20 +54,21 @@ public class activity_perfil extends AppCompatActivity {
         tvNumNivel = findViewById(R.id.tvNumNivel);
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario);
         pExp= findViewById(R.id.pbNivel);
-        LogroEstudio1=findViewById(R.id.LogroEstudio1);
-        LogroSocial1=findViewById(R.id.LogroSocial1);
-        LogroLaboral1=findViewById(R.id.LogroLaboral1);
         LogroSalud1=findViewById(R.id.LogroSalud1);
+        LogroLaboral1=findViewById(R.id.LogroLaboral1);
+        LogroSocial1=findViewById(R.id.LogroSocial1);
+        LogroEstudio1=findViewById(R.id.LogroEstudio1);
+
 
         mAuth = FirebaseAuth.getInstance();
         db= FirebaseFirestore.getInstance();
 
         pantallaP = findViewById(R.id.scrollView2);
         pantallaP.setVisibility(View.INVISIBLE);
-        LogroEstudio1.setVisibility(View.GONE);
-        LogroLaboral1.setVisibility(View.GONE);
         LogroSalud1.setVisibility(View.GONE);
+        LogroLaboral1.setVisibility(View.GONE);
         LogroSocial1.setVisibility(View.GONE);
+        LogroEstudio1.setVisibility(View.GONE);
 
         Cargando = findViewById(R.id.Cargando);
         iniciarInformación();
@@ -107,30 +108,34 @@ public class activity_perfil extends AppCompatActivity {
         doctRefe.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                 academico = Integer.parseInt(documentSnapshot.get("academico").toString());
-                 laboral = Integer.parseInt(documentSnapshot.get("laboral").toString());
-                salud = Integer.parseInt(documentSnapshot.get("salud").toString());
-                 social = Integer.parseInt(documentSnapshot.get("social").toString());
 
-                boolean academicob=false;
-                boolean laboralb=false;
+                salud = Integer.parseInt(documentSnapshot.get("salud").toString());
+                laboral = Integer.parseInt(documentSnapshot.get("laboral").toString());
+                social = Integer.parseInt(documentSnapshot.get("social").toString());
+                academico = Integer.parseInt(documentSnapshot.get("academico").toString());
+
                 boolean saludb=false;
+                boolean laboralb=false;
                 boolean socialb=false;
-                if(academico>=100){
-                    academicob=true;
+                boolean academicob=false;
+
+                if(salud>=1){
+                    saludb=true;
                 }if (laboral>=15){
                     laboralb=true;
                 }if(social>=5){
                     socialb=true;
-                }if(salud>=1){
-                    saludb=true;
+                }if(academico>=100){
+                    academicob=true;
                 }
 
+
+
                 db.collection("Logros").document(userui).update(
-                        "cerebrito", academicob,
+                        "saludable", saludb,
                         "obrero", laboralb,
                         "fiestero", socialb,
-                        "saludable", saludb
+                        "cerebrito", academicob
                 );
                 revisarLogros();
             }//Fin onSuccess
@@ -146,20 +151,20 @@ public class activity_perfil extends AppCompatActivity {
         doctRefe.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                String cerebrito = documentSnapshot.get("cerebrito").toString();
+                String saludable = documentSnapshot.get("saludable").toString();
                 String obrero = documentSnapshot.get("obrero").toString();
                 String fiestero = documentSnapshot.get("fiestero").toString();
-                String saludable = documentSnapshot.get("saludable").toString();
+                String cerebrito = documentSnapshot.get("cerebrito").toString();
 
 
-                if(cerebrito.equalsIgnoreCase("true")){
-                    LogroEstudio1.setVisibility(View.VISIBLE);
+                if(saludable.equalsIgnoreCase("true")){
+                    LogroSalud1.setVisibility(View.VISIBLE);
                 }if(obrero.equalsIgnoreCase("true")){
                     LogroLaboral1.setVisibility(View.VISIBLE);
                 }if (fiestero.equalsIgnoreCase("true")){
                     LogroSocial1.setVisibility(View.VISIBLE);
-                }if(saludable.equalsIgnoreCase("true")){
-                    LogroSalud1.setVisibility(View.VISIBLE);
+                }if(cerebrito.equalsIgnoreCase("true")){
+                    LogroEstudio1.setVisibility(View.VISIBLE);
                 }
             }//Fin onSuccess
         });
